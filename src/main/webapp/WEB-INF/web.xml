@@ -13,6 +13,15 @@
         <url-pattern>/home</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>IdeeServelet</servlet-name>
+        <servlet-class>fr.epsi.controller.IdeeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>IdeeServelet</servlet-name>
+        <url-pattern>/idee/create</url-pattern>
+    </servlet-mapping>
+
 
 
 </web-app>

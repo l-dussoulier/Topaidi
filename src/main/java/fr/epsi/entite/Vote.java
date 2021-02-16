@@ -1,9 +1,6 @@
 package fr.epsi.entite;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Vote {
@@ -12,6 +9,8 @@ public class Vote {
       @GeneratedValue(strategy = GenerationType.IDENTITY)
       private Long id;
       private Boolean vote;
+      @ManyToOne
+      @JoinColumn(name="user_id")
       private User user;
 
       public Long getId() {

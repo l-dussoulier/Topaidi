@@ -1,18 +1,14 @@
-package fr.epsi.entite;
+package fr.epsi.dto;
+
+import fr.epsi.entite.Categorie;
 
 import javax.persistence.*;
 
+public class IdeeDTO {
 
-@Entity
-public class Idee {
-
-      @Id
-      @GeneratedValue(strategy = GenerationType.IDENTITY)
       private Long id;
       private String titre;
-      @ManyToOne
-      @JoinColumn(name="categorie_id")
-      private Categorie Categorie;
+      private fr.epsi.entite.Categorie Categorie;
       private String lienImage;
 
 

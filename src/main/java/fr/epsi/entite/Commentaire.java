@@ -1,9 +1,6 @@
 package fr.epsi.entite;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Commentaire {
@@ -11,7 +8,11 @@ public class Commentaire {
       @GeneratedValue(strategy = GenerationType.IDENTITY)
       private Long id;
       private String content;
+      @ManyToOne
+      @JoinColumn(name="user_id")
       private User user;
+      @ManyToOne
+      @JoinColumn(name="idee_id")
       private Idee idee;
 
       public Long getId() {
