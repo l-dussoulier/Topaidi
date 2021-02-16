@@ -31,4 +31,14 @@
         <servlet-name>CategorieServlet</servlet-name>
         <url-pattern>/categorie</url-pattern>
     </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>CommentaireServlet</servlet-name>
+        <servlet-class>fr.epsi.controller.CommentaireServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CommentaireServlet</servlet-name>
+        <url-pattern>/commentaire</url-pattern>
+    </servlet-mapping>
 </web-app>
