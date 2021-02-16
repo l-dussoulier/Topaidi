@@ -14,14 +14,21 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>IdeeServelet</servlet-name>
+        <servlet-name>IdeeServlet</servlet-name>
         <servlet-class>fr.epsi.controller.IdeeServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>IdeeServelet</servlet-name>
+        <servlet-name>IdeeServlet</servlet-name>
         <url-pattern>/idee/create</url-pattern>
     </servlet-mapping>
 
 
-
+    <servlet>
+        <servlet-name>CategorieServlet</servlet-name>
+        <servlet-class>fr.epsi.controller.CategorieServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CategorieServlet</servlet-name>
+        <url-pattern>/categorie</url-pattern>
+    </servlet-mapping>
 </web-app>

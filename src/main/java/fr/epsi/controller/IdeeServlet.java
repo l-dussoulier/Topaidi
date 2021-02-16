@@ -11,13 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class IdeeServlet extends HttpServlet {
-      @EJB
-      private IdeeService IdeeService;
+
+      //private IdeeService IdeeService;
 
       protected void doGet(HttpServletRequest req, HttpServletResponse resp)
               throws ServletException, IOException
       {
-            req.setAttribute("categorie", IdeeService.getIdees());
+            //req.setAttribute("categorie", IdeeService.getIdees());
 
             this.getServletContext().getRequestDispatcher("/WEB-INF/idee/create.jsp").forward(req, resp);
       }
