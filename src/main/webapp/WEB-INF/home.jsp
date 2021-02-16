@@ -1,22 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
+<%--
+  Created by IntelliJ IDEA.
+  User: louis
+  Date: 16/02/2021
+  Time: 15:32
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <meta charset="ISO-8859-1">
-    <title>Bienvenue !</title>
-    <%@include file="commons/header.jsp"%>
-
+       <title>Title</title>
 </head>
 <body>
 <%@include file="commons/menu.jsp"%>
-<div class="nav-wrapper">
-    <ul id="nav-mobile" class="hide-on-med-and-down">
-        <li><a href="user/create">Proposer une idée</a></li>
-        <li><a href="idées">Idées proposées</a></li>
-    </ul>
-</div>
-<%@include file="commons/footer.jsp"%>
 
 </body>
 </html>
