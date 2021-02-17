@@ -1,4 +1,4 @@
-package fr.epsi.dao;
+package fr.epsi.dao.Idee;
 
 import fr.epsi.entite.Idee;
 

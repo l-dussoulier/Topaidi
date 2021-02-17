@@ -1,4 +1,4 @@
-package fr.epsi.service;
+package fr.epsi.service.Categorie;
 
 
 import fr.epsi.dto.CategorieDTO;

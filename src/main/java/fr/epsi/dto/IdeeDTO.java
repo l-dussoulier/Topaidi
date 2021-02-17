@@ -8,6 +8,7 @@ public class IdeeDTO {
 
       private Long id;
       private String titre;
+      private String content;
       private fr.epsi.entite.Categorie Categorie;
       private String lienImage;
 
@@ -42,5 +43,13 @@ public class IdeeDTO {
 
       public void setLienImage(String lienImage) {
             this.lienImage = lienImage;
+      }
+
+      public String getContent() {
+            return content;
+      }
+
+      public void setContent(String content) {
+            this.content = content;
       }
 }

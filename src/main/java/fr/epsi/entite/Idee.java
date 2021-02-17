@@ -10,6 +10,7 @@ public class Idee {
       @GeneratedValue(strategy = GenerationType.IDENTITY)
       private Long id;
       private String titre;
+      private String content;
       @ManyToOne
       @JoinColumn(name="categorie_id")
       private Categorie Categorie;
@@ -57,5 +58,13 @@ public class Idee {
 
       public void setUser(User user) {
             this.user = user;
+      }
+
+      public String getContent() {
+            return content;
+      }
+
+      public void setContent(String content) {
+            this.content = content;
       }
 }

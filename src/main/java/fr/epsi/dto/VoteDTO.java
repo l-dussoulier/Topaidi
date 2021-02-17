@@ -1,20 +1,16 @@
-package fr.epsi.entite;
+package fr.epsi.dto;
 
-import javax.persistence.*;
+import fr.epsi.entite.Idee;
+import fr.epsi.entite.User;
 
-@Entity
-public class Vote {
 
-      @Id
-      @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class VoteDTO {
+
       private Long id;
       private Boolean vote;
-      @ManyToOne
-      @JoinColumn(name="user_id")
       private User user;
-      @ManyToOne
-      @JoinColumn(name="idee_id")
       private Idee Idee;
+
 
       public Long getId() {
             return id;
@@ -23,7 +19,6 @@ public class Vote {
       public void setId(Long id) {
             this.id = id;
       }
-
 
       public Boolean getVote() {
             return vote;

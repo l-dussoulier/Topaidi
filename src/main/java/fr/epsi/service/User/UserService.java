@@ -1,4 +1,4 @@
-package fr.epsi.service;
+package fr.epsi.service.User;
 
 import fr.epsi.dto.UserDTO;
 import fr.epsi.entite.User;

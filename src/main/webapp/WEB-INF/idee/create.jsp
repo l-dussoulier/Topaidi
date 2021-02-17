@@ -25,6 +25,10 @@
                      </select>
               </div>
               <div class="form-group">
+                     <label for="titrelabel">Titre</label>
+                     <textarea class="form-control" id="titrelabel" rows="1" name="titre"></textarea>
+              </div>
+              <div class="form-group">
                      <label for="exampleFormControlTextarea1">Votre proposition</label>
                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="texte"></textarea>
               </div>

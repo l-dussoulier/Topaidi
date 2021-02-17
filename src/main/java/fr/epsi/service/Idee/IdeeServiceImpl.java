@@ -1,8 +1,9 @@
-package fr.epsi.service;
+package fr.epsi.service.Idee;
 
-import fr.epsi.dao.IdeeDao;
-import fr.epsi.dao.IdeeDaoImpl;
+import fr.epsi.dao.Idee.IdeeDao;
+import fr.epsi.dao.Idee.IdeeDaoImpl;
 import fr.epsi.dto.IdeeDTO;
+import fr.epsi.entite.Categorie;
 import fr.epsi.entite.Idee;
 
 import javax.annotation.Resource;
@@ -29,6 +30,7 @@ public class IdeeServiceImpl implements IdeeService {
 
             Idee i = new Idee();
             i.setTitre(ideeDTO.getTitre());
+            i.setContent(ideeDTO.getContent());
             i.setCategorie(ideeDTO.getCategorie());
             i.setLienImage(ideeDTO.getLienImage());
             IdeeDao dao =new IdeeDaoImpl(em, utx);
@@ -38,6 +40,12 @@ public class IdeeServiceImpl implements IdeeService {
 
 
       public List<Idee> getIdees() {
-            return null;
+            IdeeDao IdeeDao = new IdeeDaoImpl(em, utx);
+            return IdeeDao.getIdees();
+      }
+
+      @Override
+      public Idee getById(Long id) {
+            return em.find(Idee.class, id);
       }
 }

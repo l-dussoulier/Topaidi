@@ -15,7 +15,7 @@
 
     <servlet>
         <servlet-name>IdeeServlet</servlet-name>
-        <servlet-class>fr.epsi.controller.IdeeServlet</servlet-class>
+        <servlet-class>fr.epsi.controller.Idee.IdeeServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>IdeeServlet</servlet-name>
@@ -50,5 +50,14 @@
     <servlet-mapping>
         <servlet-name>UserServlet</servlet-name>
         <url-pattern>/user</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ListIdeeServlet</servlet-name>
+        <servlet-class>fr.epsi.controller.Idee.ListIdeeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListIdeeServlet</servlet-name>
+        <url-pattern>/idee/listIdees</url-pattern>
     </servlet-mapping>
 </web-app>

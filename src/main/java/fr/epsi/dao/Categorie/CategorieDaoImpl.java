@@ -1,4 +1,4 @@
-package fr.epsi.dao;
+package fr.epsi.dao.Categorie;
 
 import fr.epsi.entite.Categorie;
 

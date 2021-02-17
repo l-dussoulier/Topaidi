@@ -13,7 +13,7 @@
        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div class="navbar-nav">
                      <a class="nav-item nav-link" href="idee/create">Proposer idée</a>
-                     <a class="nav-item nav-link" href="#">Liste idées</a>
+                     <a class="nav-item nav-link" href="idee/listIdees">Liste idées</a>
                      <a class="nav-item nav-link disabled" href="#">ajouter catégorie</a>
               </div>
        </div>

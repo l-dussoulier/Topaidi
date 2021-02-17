@@ -1,4 +1,4 @@
-package fr.epsi.dao;
+package fr.epsi.dao.Commentaire;
 
 import fr.epsi.entite.Commentaire;
 import java.util.List;

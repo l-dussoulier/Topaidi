@@ -1,26 +1,25 @@
-package fr.epsi.dao;
+package fr.epsi.dao.User;
 
-import fr.epsi.entite.Commentaire;
-import fr.epsi.entite.Idee;
+import fr.epsi.entite.User;
 
 import javax.persistence.EntityManager;
 import javax.transaction.*;
 import java.util.List;
 
-public class CommentaireDaoImpl implements CommentaireDao {
+public class UserDaoImpl implements UserDao {
 
     EntityManager em;
     UserTransaction utx;
 
-    public CommentaireDaoImpl(EntityManager em, UserTransaction utx) {
+    public UserDaoImpl(EntityManager em, UserTransaction utx) {
         this.em = em;
         this.utx = utx;
     }
 
-    public void create(Commentaire com) {
+    public void create(User u) {
         try {
             utx.begin();
-            em.persist(com);
+            em.persist(u);
             utx.commit();
         } catch (NotSupportedException e) {
             // TODO Auto-generated catch block
@@ -44,11 +43,12 @@ public class CommentaireDaoImpl implements CommentaireDao {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+
+
     }
 
-
     @Override
-    public List<Commentaire> getCommentaires() {
-        return em.createQuery("select com from Commentaire com", Commentaire.class).getResultList();
+    public List<User> getUsers() {
+        return em.createQuery("select  from User u", User.class).getResultList();
     }
 }

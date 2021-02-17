@@ -1,9 +1,9 @@
-package fr.epsi.controller;
+package fr.epsi.controller.Idee;
 
 import fr.epsi.dto.IdeeDTO;
 import fr.epsi.entite.Categorie;
-import fr.epsi.service.CategorieService;
-import fr.epsi.service.IdeeService;
+import fr.epsi.service.Categorie.CategorieService;
+import fr.epsi.service.Idee.IdeeService;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -11,8 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-
-import static java.lang.Integer.parseInt;
 import static java.lang.Long.parseLong;
 
 
@@ -58,9 +56,12 @@ public class IdeeServlet extends HttpServlet {
 
             IdeeDTO iDTO=new IdeeDTO();
             iDTO.setCategorie(cat);
-            iDTO.setTitre(req.getParameter("texte"));
+            iDTO.setTitre(req.getParameter("titre"));
+            iDTO.setContent(req.getParameter("texte"));
             iDTO.setLienImage(req.getParameter("lien"));
             IdeeService.create(iDTO);
+
+            this.getServletContext().getRequestDispatcher("/WEB-INF/home.jsp").forward(req, resp);
 
       }
 }

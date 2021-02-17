@@ -1,7 +1,7 @@
-package fr.epsi.service;
+package fr.epsi.service.Categorie;
 
-import fr.epsi.dao.CategorieDao;
-import fr.epsi.dao.CategorieDaoImpl;
+import fr.epsi.dao.Categorie.CategorieDao;
+import fr.epsi.dao.Categorie.CategorieDaoImpl;
 import fr.epsi.dto.CategorieDTO;
 import fr.epsi.entite.Categorie;
 

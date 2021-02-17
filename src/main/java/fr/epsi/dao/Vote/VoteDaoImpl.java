@@ -1,24 +1,24 @@
-package fr.epsi.dao;
+package fr.epsi.dao.Vote;
 
-import fr.epsi.entite.Idee;
+import fr.epsi.entite.Vote;
 
 import javax.persistence.EntityManager;
 import javax.transaction.*;
 import java.util.List;
 
-public class IdeeDaoImpl implements IdeeDao {
+public class VoteDaoImpl implements VoteDao {
 
       EntityManager em;
       UserTransaction utx;
 
-      public IdeeDaoImpl(EntityManager em, UserTransaction utx) {
+      public VoteDaoImpl(EntityManager em, UserTransaction utx) {
             this.em=em;
             this.utx=utx;
       }
-      public void create(Idee i) {
+      public void create(Vote v) {
             try {
                   utx.begin();
-                  em.persist(i);
+                  em.persist(v);
 
                   utx.commit();
             } catch (NotSupportedException e) {
@@ -48,7 +48,9 @@ public class IdeeDaoImpl implements IdeeDao {
       }
 
       @Override
-      public List<Idee> getIdees() {
-            return em.createQuery("select i from Idee i", Idee.class).getResultList();
+      public List<Vote> getVotes() {
+            return em.createQuery("select i from Vote i", Vote.class).getResultList();
       }
+
+
 }

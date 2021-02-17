@@ -1,4 +1,4 @@
-package fr.epsi.service;
+package fr.epsi.service.Commentaire;
 
 import fr.epsi.dto.CommentaireDTO;
 import fr.epsi.entite.Commentaire;

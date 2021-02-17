@@ -1,4 +1,4 @@
-package fr.epsi.dao;
+package fr.epsi.dao.User;
 
 import fr.epsi.entite.User;
 
