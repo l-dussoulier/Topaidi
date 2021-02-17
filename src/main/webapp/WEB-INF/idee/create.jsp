@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: louis
-  Date: 16/02/2021
-  Time: 17:34
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -12,25 +6,35 @@
 </head>
 <body>
 <%@include file="../commons/menu.jsp"%>
-test idée
 
-<c:forEach items="${factures}" var="factures">
-       <tr>
-              <td>
-                     <fmt:formatDate pattern="dd/MM/yyyy" type="date" value="${factures.date}" />
-              </td>
-              <td>
-                     <c:out value="${factures.numero}" />
-              </td>
-              <td>
-                     <c:out value="${factures.prix}" />
-              </td>
-              <td>
-                     <a href="Factures/Detail?id=<c:out value="${factures.id}"/>"/>
-                     Détail
-                     </a>
-              </td>
-       </tr>
-</c:forEach>
+<h5> Choisir une catégorie</h5>
+
+<div class="col-md-2"></div>
+<div class="col-md-8">
+       <form action="create" method="post">
+              <div class="form-group">
+                     <label for="emailInput">Votre Email</label>
+                     <input type="email" class="form-control" id="emailInput" name="email" placeholder="name@example.com">
+              </div>
+              <div class="form-group">
+                     <label >Choisir une catégorie</label>
+                     <select name="categorie-select">
+                            <c:forEach items="${categories}" var="categories">
+                                   <option value="<c:out value="${ categories.id }" />"><c:out value="${ categories.nom }" /></option>
+                            </c:forEach>
+                     </select>
+              </div>
+              <div class="form-group">
+                     <label for="exampleFormControlTextarea1">Votre proposition</label>
+                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="texte"></textarea>
+              </div>
+              <div class="form-group">
+                     <label>Lien annexe</label>
+                     <textarea class="form-control"  rows="1" name="lien"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Envoyer</button>
+       </form>
+</div>
 </body>
 </html>
+
