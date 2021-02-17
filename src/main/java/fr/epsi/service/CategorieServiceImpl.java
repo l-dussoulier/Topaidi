@@ -33,9 +33,15 @@ public class CategorieServiceImpl implements CategorieService {
             dao.create(c);
       }
 
+      @Override
+      public Categorie getById(Long idcat) {
+            return em.find(Categorie.class, idcat);
+      }
+
       public List<Categorie> getCategories() {
             CategorieDao CategorieDao = new CategorieDaoImpl(em, utx);
             return CategorieDao.getCategories();
       }
+
 
 }

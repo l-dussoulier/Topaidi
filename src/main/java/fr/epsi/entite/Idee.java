@@ -14,6 +14,9 @@ public class Idee {
       @JoinColumn(name="categorie_id")
       private Categorie Categorie;
       private String lienImage;
+      @ManyToOne
+      @JoinColumn(name="user_id")
+      private User user;
 
 
       public Long getId() {
@@ -46,5 +49,13 @@ public class Idee {
 
       public void setLienImage(String lienImage) {
             this.lienImage = lienImage;
+      }
+
+      public User getUser() {
+            return user;
+      }
+
+      public void setUser(User user) {
+            this.user = user;
       }
 }

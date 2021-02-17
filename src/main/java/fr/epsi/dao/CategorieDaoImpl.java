@@ -34,6 +34,13 @@ public class CategorieDaoImpl implements CategorieDao {
     }
 
     @Override
+    public Categorie getById(int idcat) {
+        return em.createQuery("select c from Categorie c WHERE c.id = :id ",Categorie.class)
+                .setParameter("id", idcat)
+                .getSingleResult();
+    }
+
+    @Override
     public List<Categorie> getCategories() {
         return em.createQuery("select c from Categorie c", Categorie.class).getResultList();
     }

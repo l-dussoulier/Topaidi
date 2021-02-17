@@ -9,5 +9,7 @@ import java.util.List;
 public interface CategorieService {
     void create(CategorieDTO i);
 
+    Categorie getById(Long idcat);
+
     List<Categorie> getCategories();
 }
