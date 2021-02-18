@@ -49,8 +49,22 @@
                             <div class="col-md-3">
                                    <img style="width: 18rem;" class="card-img-top" src="<c:out value="${idees.lienImage}" />" alt="Card image cap">
                             </div>
-                            <div class="col-md-9">
-                                   <p><c:out value="${idees.content}" /></p>
+                            <div class="col-md-3">
+                                   <p style="width: 30rem;"><c:out value="${idees.content}" /></p>
+                            </div>
+                            <div class="col-md-6">
+                                   <div class="card">
+                                          <c:forEach items="${commentaire}" var="com">
+                                          <p><span style="color: grey"><c:out value="${idees.user.email}" />: </span> <c:out value="${com.content}"/></p>
+                                          </c:forEach>
+                                   </div>
+                                   <form action="listIdees" method="post">
+                                          <div class="form-group">
+                                                 <input type="text" name="idee_id" value="<c:out value="${idees.id}"/>" hidden>
+                                                 <input type="text" placeholder="Ajouter un commentaire ..." class="form-control" id="commentaireInput" name="commentaire" value="TEST">
+                                                 <button type="submit" class="btn btn-primary">Envoyer</button>
+                                          </div>
+                                   </form>
                             </div>
 
                             <footer class="blockquote-footer">écrit par <c:out value="${idees.user.email}" /></footer>

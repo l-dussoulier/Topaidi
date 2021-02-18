@@ -15,10 +15,8 @@
                      <a class="nav-item nav-link" href="idee/create">Proposer idée</a>
                      <a class="nav-item nav-link" href="idee/listIdees">Liste idées</a>
                      <a class="nav-item nav-link disabled" href="#">ajouter catégorie</a>
-                     <c:if test="<%= request.getSession().getAttribute("ROLEID_USER") == "1" %>">
                             <!-- Finir affichage par rapport au niveau du role-->
                             <a class="nav-item nav-link" href="user/listUsers">Liste compte en attente</a>
-                     </c:if>
                      <a class="nav-item nav-link" href="user/create">Créer compte</a>
                      <a class="nav-item nav-link" href="logout">Déconnexion</a>
 
