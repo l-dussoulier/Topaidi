@@ -2,8 +2,10 @@ package fr.epsi.controller.Idee;
 
 import fr.epsi.dto.IdeeDTO;
 import fr.epsi.entite.Categorie;
+import fr.epsi.entite.User;
 import fr.epsi.service.Categorie.CategorieService;
 import fr.epsi.service.Idee.IdeeService;
+import fr.epsi.service.User.UserService;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -20,6 +22,8 @@ public class IdeeServlet extends HttpServlet {
       private CategorieService CategorieService;
       @EJB
       private IdeeService IdeeService;
+      @EJB
+      private UserService userService;
 
 
 
@@ -51,11 +55,12 @@ public class IdeeServlet extends HttpServlet {
             // récuperer une catégorie par id
             Long idCat = parseLong(req.getParameter("categorie-select"));
             Categorie cat = CategorieService.getById(idCat);
-            System.out.println(cat.getNom());
-
+            User user= userService.getById((Long) req.getSession().getAttribute("ID_USER"));
+            System.out.println(user);
 
             IdeeDTO iDTO=new IdeeDTO();
             iDTO.setCategorie(cat);
+            iDTO.setUser(user);
             iDTO.setTitre(req.getParameter("titre"));
             iDTO.setContent(req.getParameter("texte"));
             iDTO.setLienImage(req.getParameter("lien"));

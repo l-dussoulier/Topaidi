@@ -24,7 +24,7 @@
                      <form action="listIdees" method="post">
                             <div class="row">
                             <div class="col-md-10">
-                            <h4><c:out value="${idees.titre}" /></h4>
+                            <h4><c:out value="${idees.titre}" />   <span class="text-secondary">- <c:out value="${idees.categorie.nom}" /></span></h4>
                             </div>
                             <div class="col-md-2 text-right">
                             <input type="text" name="idee_id" value="<c:out value="${idees.id}"/>" hidden>
@@ -53,7 +53,7 @@
                                    <p><c:out value="${idees.content}" /></p>
                             </div>
 
-                            <footer class="blockquote-footer"><c:out value="${idees.categorie.nom}" /></footer>
+                            <footer class="blockquote-footer">écrit par <c:out value="${idees.user.email}" /></footer>
                             <!-- Remplacer categorie par user une fois add-->
                             </div>
                      </blockquote>

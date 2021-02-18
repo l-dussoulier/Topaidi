@@ -14,7 +14,7 @@
        <form action="create" method="post">
               <div class="form-group">
                      <label for="emailInput">Votre Email</label>
-                     <input type="email" class="form-control" id="emailInput" name="email" placeholder="name@example.com">
+                     <input type="email" class="form-control" readonly id="emailInput" name="email" value=" <%= request.getSession().getAttribute("EMAIL_USER") %>">
               </div>
               <div class="form-group">
                      <label >Choisir une catégorie</label>

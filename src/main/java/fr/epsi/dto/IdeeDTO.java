@@ -1,6 +1,7 @@
 package fr.epsi.dto;
 
 import fr.epsi.entite.Categorie;
+import fr.epsi.entite.User;
 
 import javax.persistence.*;
 
@@ -11,6 +12,7 @@ public class IdeeDTO {
       private String content;
       private fr.epsi.entite.Categorie Categorie;
       private String lienImage;
+      private User user;
 
 
       public Long getId() {
@@ -51,5 +53,13 @@ public class IdeeDTO {
 
       public void setContent(String content) {
             this.content = content;
+      }
+
+      public User getUser() {
+            return user;
+      }
+
+      public void setUser(User user) {
+            this.user = user;
       }
 }

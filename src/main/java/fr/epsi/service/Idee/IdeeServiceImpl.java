@@ -33,6 +33,7 @@ public class IdeeServiceImpl implements IdeeService {
             i.setContent(ideeDTO.getContent());
             i.setCategorie(ideeDTO.getCategorie());
             i.setLienImage(ideeDTO.getLienImage());
+            i.setUser(ideeDTO.getUser());
             IdeeDao dao =new IdeeDaoImpl(em, utx);
 
             dao.create(i);
@@ -48,4 +49,6 @@ public class IdeeServiceImpl implements IdeeService {
       public Idee getById(Long id) {
             return em.find(Idee.class, id);
       }
+
+
 }
