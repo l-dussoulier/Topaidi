@@ -13,11 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Date;
-import java.sql.Timestamp;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 import static java.lang.Long.parseLong;
 
@@ -70,6 +66,8 @@ public class IdeeServlet extends HttpServlet {
             iDTO.setTitre(req.getParameter("titre"));
             iDTO.setContent(req.getParameter("texte"));
             iDTO.setLienImage(req.getParameter("lien"));
+            Date date = new Date();
+            iDTO.setDateEmission(date);
             IdeeService.create(iDTO);
 
             resp.sendRedirect("../idee/listIdees");

@@ -24,7 +24,7 @@ public class Idee {
       private User user;
       private Long top = parseLong("0");
       private Long flop = parseLong("0");
-      private Long dateEmission;
+      private Date dateEmission;
 
 
       public Long getId() {
@@ -91,11 +91,11 @@ public class Idee {
             this.flop = flop;
       }
 
-      public Long getDateEmission() {
+      public Date getDateEmission() {
             return dateEmission;
       }
 
-      public void setDateEmission(Long dateEmission) {
+      public void setDateEmission(Date dateEmission) {
             this.dateEmission = dateEmission;
       }
 }

@@ -16,7 +16,7 @@ public class IdeeDTO {
       private User user;
       private Long top;
       private Long flop;
-      private Long dateEmission;
+      private Date dateEmission;
 
 
 
@@ -85,11 +85,11 @@ public class IdeeDTO {
             this.flop = flop;
       }
 
-      public Long getDateEmission() {
+      public Date getDateEmission() {
             return dateEmission;
       }
 
-      public void setDateEmission(Long dateEmission) {
+      public void setDateEmission(Date dateEmission) {
             this.dateEmission = dateEmission;
       }
 }
