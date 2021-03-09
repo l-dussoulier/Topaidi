@@ -4,6 +4,7 @@ import fr.epsi.dto.IdeeDTO;
 import fr.epsi.entite.Categorie;
 import fr.epsi.entite.Idee;
 
+import java.util.Date;
 import java.util.List;
 
 public interface IdeeService {
@@ -19,4 +20,6 @@ public interface IdeeService {
       void setDisLike(Idee i,Long flop);
 
       long getHisIdea(Long idUser, Long idIdee);
+
+      Long getGoodDate(Long idIdee, Date date);
 }

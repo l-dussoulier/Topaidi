@@ -18,6 +18,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Date;
+
 import static java.lang.Long.parseLong;
 
 
@@ -59,37 +61,42 @@ public class ListIdeeServlet extends HttpServlet {
             vDTO.setUser(user);
 
             System.out.println("IdeeService");
-            System.out.println(IdeeService.getHisIdea(idUser,idIdee));
-
-            if (IdeeService.getHisIdea(idUser,idIdee) == 0) {
-                  if (VoteService.getVotesIdeeUser(idUser, idIdee) == 0) {
-                        Boolean bool = null;
-                        if (like != null) {
-                              bool = true;
-                              Long nblike = idee.getTop();
-                              nblike = nblike + 1;
-                              IdeeService.setLike(idee, nblike);
-                        } else if (dislike != null) {
-                              bool = false;
-                              Long nbdislike = idee.getFlop();
-                              nbdislike = nbdislike + 1;
-                              IdeeService.setDisLike(idee, nbdislike);
+            Date date = new Date();
+            System.out.println(IdeeService.getGoodDate(idIdee,date));
+            if(IdeeService.getGoodDate(idIdee,date) == 0 ){
+                  if (IdeeService.getHisIdea(idUser,idIdee) == 0) {
+                        if (VoteService.getVotesIdeeUser(idUser, idIdee) == 0) {
+                              Boolean bool = null;
+                              if (like != null) {
+                                    bool = true;
+                                    Long nblike = idee.getTop();
+                                    nblike = nblike + 1;
+                                    IdeeService.setLike(idee, nblike);
+                              } else if (dislike != null) {
+                                    bool = false;
+                                    Long nbdislike = idee.getFlop();
+                                    nbdislike = nbdislike + 1;
+                                    IdeeService.setDisLike(idee, nbdislike);
+                              }
+                              vDTO.setVote(bool);
+                              VoteService.create(vDTO);
+                        }else{
+                              //mettre un message dans le bandeau déjà voté pour cette idée
+                              System.out.println("Vous avez déjà voté pour cette idée");
                         }
-                        vDTO.setVote(bool);
-                        VoteService.create(vDTO);
-                  }else{
-                        //mettre un message dans le bandeau déja voté pour cette idée
-                        //req.setAttribute("infoIdees", "Impossible de voté plusieurs fois pour une même idée !");
+                  }else {
+                        //mettre un message dans le bandeau user pas le droit de voté pour son idée
+                        System.out.println("Vous n'avez pas le droit de voté pour votre idée");
                   }
-            }else {
-                  //mettre un message dans le bandeau user pas le droit de voté pour son idée
+            } else {
+                  //mettre un message dans le bandeau user à dépassé la  date limite
+                  System.out.println("Vous n'avez dépassé la date limite pour voté");
             }
 
 
 
 
             // commentaires
-            System.out.println(req.getParameter("commentaire"));
             CommentaireDTO cDTO = new CommentaireDTO();
             cDTO.setIdee(idee);
             cDTO.setContent(req.getParameter("commentaire"));

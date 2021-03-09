@@ -3,8 +3,11 @@ package fr.epsi.dao.Idee;
 import fr.epsi.entite.Idee;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import javax.transaction.*;
+import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class IdeeDaoImpl implements IdeeDao {
 
@@ -119,9 +122,18 @@ public class IdeeDaoImpl implements IdeeDao {
 
       @Override
       public long getHisIdea(Long idUser, Long idIdee) {
-            return em.createQuery("select COUNT(i.titre) from Idee i where i.id = :idIdee AND i.user.id = :idUser",Long.class)
+            return em.createQuery("select COUNT(i) from Idee i where i.id = :idIdee AND i.user.id = :idUser",Long.class)
                     .setParameter("idIdee",idIdee)
                     .setParameter("idUser",idUser)
+                    .getSingleResult();
+      }
+
+      @Override
+      public Long getGoodDate(Long idIdee, Date date) {
+            date.setTime(date.getTime() + TimeUnit.DAYS.toMillis(-7));
+            return em.createQuery("select COUNT(i) from Idee i where i.id = :idIdee AND i.dateEmission <= :dateEmi",Long.class)
+                    .setParameter("idIdee",idIdee)
+                    .setParameter("dateEmi",date)
                     .getSingleResult();
       }
 

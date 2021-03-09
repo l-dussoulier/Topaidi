@@ -17,6 +17,7 @@ import javax.ejb.TransactionManagementType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.UserTransaction;
+import java.util.Date;
 import java.util.List;
 
 @Stateless
@@ -71,6 +72,12 @@ public class IdeeServiceImpl implements IdeeService {
       public long getHisIdea(Long idUser, Long idIdee) {
             IdeeDao ideeDao = new IdeeDaoImpl(em,utx);
             return ideeDao.getHisIdea(idUser,idIdee);
+      }
+
+      @Override
+      public Long getGoodDate(Long idIdee, Date date) {
+            IdeeDao ideeDao = new IdeeDaoImpl(em,utx);
+            return ideeDao.getGoodDate(idIdee,date);
       }
 
 

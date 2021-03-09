@@ -58,7 +58,6 @@ public class VoteDaoImpl implements VoteDao {
             Long query = em.createQuery("select COUNT(v.vote) from Vote v where v.Idee = :l AND v.vote = true", Long.class)
                     .setParameter("l",idee_id)
                     .getSingleResult();
-            System.out.println(query);
             return query;
       }
 

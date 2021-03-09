@@ -2,6 +2,7 @@ package fr.epsi.dao.Idee;
 
 import fr.epsi.entite.Idee;
 
+import java.util.Date;
 import java.util.List;
 
 public interface IdeeDao {
@@ -14,4 +15,6 @@ public interface IdeeDao {
       void setDisLike(Idee i, Long flop);
 
       long getHisIdea(Long idUser, Long idIdee);
+
+      Long getGoodDate(Long idIdee, Date date);
 }
