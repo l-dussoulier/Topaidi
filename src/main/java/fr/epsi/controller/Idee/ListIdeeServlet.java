@@ -48,6 +48,7 @@ public class ListIdeeServlet extends HttpServlet {
 
             String like = req.getParameter("like");
             String dislike = req.getParameter("dislike");
+            String commentaire = req.getParameter("commentaire");
 
             // recuperation du user
             Long idUser = (Long) req.getSession().getAttribute("ID_USER");
@@ -93,16 +94,13 @@ public class ListIdeeServlet extends HttpServlet {
                   System.out.println("Vous n'avez dépassé la date limite pour voté");
             }
 
-
-
-
-            // commentaires
-            CommentaireDTO cDTO = new CommentaireDTO();
-            cDTO.setIdee(idee);
-            cDTO.setContent(req.getParameter("commentaire"));
-            cDTO.setUser(user);
-            CommentaireService.create(cDTO);
-
+            if (commentaire != null) {
+                  CommentaireDTO cDTO = new CommentaireDTO();
+                  cDTO.setIdee(idee);
+                  cDTO.setContent(req.getParameter("commentaire"));
+                  cDTO.setUser(user);
+                  CommentaireService.create(cDTO);
+            }
 
             resp.sendRedirect("../idee/listIdees");
       }

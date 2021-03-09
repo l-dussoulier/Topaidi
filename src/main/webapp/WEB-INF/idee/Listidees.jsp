@@ -56,6 +56,16 @@
                                    <p style="width: 30rem;"><c:out value="${idees.content}" /></p>
                             </div>
                             <div class="col-md-4">
+                                   <form action="listIdees" method="post">
+                                          <div class="input-group mb-3" style="margin-top: 10px;">
+                                                 <input class="form-control" type="text" name="idee_id" value="<c:out value="${idees.id}"/>" hidden>
+                                                 <input class="form-control" type="text" placeholder="Ajouter un commentaire ..." class="form-control" id="commentaireInput" name="commentaire">
+
+                                                 <div class="input-group-append">
+                                                        <button type="submit" class="btn btn-outline-secondary" name="commentaire" value="3">Envoyer</button>
+                                                 </div>
+                                          </div>
+                                   </form>
                                    <div class="card" style=" overflow: scroll; height: 300px;">
                                           <c:forEach items="${commentaire}" var="commentaire">
                                                  <c:if test="${ idees.id == commentaire.idee.id }" var="variable">
@@ -63,16 +73,6 @@
                                                  </c:if>
                                           </c:forEach>
                                    </div>
-                                   <form action="listIdees" method="post">
-                                          <div class="input-group mb-3" style="margin-top: 10px;">
-                                                 <input class="form-control" type="text" name="idee_id" value="<c:out value="${idees.id}"/>" hidden>
-                                                 <input class="form-control" type="text" placeholder="Ajouter un commentaire ..." class="form-control" id="commentaireInput" name="commentaire">
-
-                                                 <div class="input-group-append">
-                                                        <button type="submit" class="btn btn-outline-secondary">Envoyer</button>
-                                                 </div>
-                                          </div>
-                                   </form>
                             </div>
 
                             <footer class="blockquote-footer">écrit par <c:out value="${idees.user.email}" /> à  <fmt:formatDate pattern="HH:mm" type="date" value="${idees.dateEmission}"/> le <fmt:formatDate pattern="dd/MM/yy" type="date" value="${idees.dateEmission}" />
