@@ -19,7 +19,7 @@ public class LogoutServlet extends HttpServlet {
             throws ServletException, IOException
     {
           req.getSession().invalidate();
-        this.getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(req, resp);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/auth/login.jsp").forward(req, resp);
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)

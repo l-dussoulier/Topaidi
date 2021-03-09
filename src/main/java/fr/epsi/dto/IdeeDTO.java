@@ -4,6 +4,7 @@ import fr.epsi.entite.Categorie;
 import fr.epsi.entite.User;
 
 import javax.persistence.*;
+import java.util.Date;
 
 public class IdeeDTO {
 
@@ -13,6 +14,10 @@ public class IdeeDTO {
       private fr.epsi.entite.Categorie Categorie;
       private String lienImage;
       private User user;
+      private Long top;
+      private Long flop;
+      private Long dateEmission;
+
 
 
       public Long getId() {
@@ -61,5 +66,30 @@ public class IdeeDTO {
 
       public void setUser(User user) {
             this.user = user;
+      }
+
+
+      public Long getTop() {
+            return top;
+      }
+
+      public void setTop(Long top) {
+            this.top = top;
+      }
+
+      public Long getFlop() {
+            return flop;
+      }
+
+      public void setFlop(Long flop) {
+            this.flop = flop;
+      }
+
+      public Long getDateEmission() {
+            return dateEmission;
+      }
+
+      public void setDateEmission(Long dateEmission) {
+            this.dateEmission = dateEmission;
       }
 }

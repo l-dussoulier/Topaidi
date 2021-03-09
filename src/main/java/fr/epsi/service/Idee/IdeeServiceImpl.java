@@ -2,6 +2,10 @@ package fr.epsi.service.Idee;
 
 import fr.epsi.dao.Idee.IdeeDao;
 import fr.epsi.dao.Idee.IdeeDaoImpl;
+import fr.epsi.dao.User.UserDao;
+import fr.epsi.dao.User.UserDaoImpl;
+import fr.epsi.dao.Vote.VoteDao;
+import fr.epsi.dao.Vote.VoteDaoImpl;
 import fr.epsi.dto.IdeeDTO;
 import fr.epsi.entite.Categorie;
 import fr.epsi.entite.Idee;
@@ -34,6 +38,7 @@ public class IdeeServiceImpl implements IdeeService {
             i.setCategorie(ideeDTO.getCategorie());
             i.setLienImage(ideeDTO.getLienImage());
             i.setUser(ideeDTO.getUser());
+            i.setDateEmission(ideeDTO.getDateEmission());
             IdeeDao dao =new IdeeDaoImpl(em, utx);
 
             dao.create(i);
@@ -48,6 +53,24 @@ public class IdeeServiceImpl implements IdeeService {
       @Override
       public Idee getById(Long id) {
             return em.find(Idee.class, id);
+      }
+
+      @Override
+      public void  setLike(Idee i,Long top) {
+            IdeeDao ideeDao = new IdeeDaoImpl(em, utx);
+            ideeDao.setLike(i,top);
+      }
+
+      @Override
+      public void setDisLike(Idee i, Long flop) {
+            IdeeDao ideeDao = new IdeeDaoImpl(em, utx);
+            ideeDao.setDisLike(i,flop);
+      }
+
+      @Override
+      public long getHisIdea(Long idUser, Long idIdee) {
+            IdeeDao ideeDao = new IdeeDaoImpl(em,utx);
+            return ideeDao.getHisIdea(idUser,idIdee);
       }
 
 

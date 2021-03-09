@@ -1,2 +1,5 @@
 # Project exclude paths
 /target/
+
+# Ajoute la date du post
+# AJoute date sur chaque commentaire en short

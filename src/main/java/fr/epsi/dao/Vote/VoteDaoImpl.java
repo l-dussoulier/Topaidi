@@ -1,5 +1,6 @@
 package fr.epsi.dao.Vote;
 
+import fr.epsi.entite.Idee;
 import fr.epsi.entite.Vote;
 
 import javax.persistence.EntityManager;
@@ -49,7 +50,25 @@ public class VoteDaoImpl implements VoteDao {
 
       @Override
       public List<Vote> getVotes() {
-            return em.createQuery("select i from Vote i", Vote.class).getResultList();
+            return em.createQuery("select v from Vote v", Vote.class).getResultList();
+      }
+
+      @Override
+      public Long countVote(Idee idee_id) {
+            Long query = em.createQuery("select COUNT(v.vote) from Vote v where v.Idee = :l AND v.vote = true", Long.class)
+                    .setParameter("l",idee_id)
+                    .getSingleResult();
+            System.out.println(query);
+            return query;
+      }
+
+      @Override
+      public Long getVotesIdeeUser(Long idUser, Long idIdee) {
+
+            return em.createQuery("select COUNT(v.vote) from Vote v where v.Idee.id = :idIdee AND v.user.id = :idUser",Long.class)
+                    .setParameter("idIdee",idIdee)
+                    .setParameter("idUser",idUser)
+                    .getSingleResult();
       }
 
 

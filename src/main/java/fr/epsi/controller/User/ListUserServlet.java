@@ -46,6 +46,7 @@ public class ListUserServlet extends HttpServlet {
 
             UserService.setRole(user,role);
 
-            this.getServletContext().getRequestDispatcher("/WEB-INF/user/ListUsers.jsp").forward(req, resp);
+            req.setAttribute("info","modification de l'utilisateur " +user.getEmail()+" Réussite");
+            this.getServletContext().getRequestDispatcher("/WEB-INF/home.jsp").forward(req, resp);
       }
 }

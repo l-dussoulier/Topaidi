@@ -7,7 +7,7 @@ import fr.epsi.entite.Categorie;
 import java.util.List;
 
 public interface CategorieService {
-    void create(CategorieDTO i);
+    void create(CategorieDTO c);
 
     Categorie getById(Long idcat);
 

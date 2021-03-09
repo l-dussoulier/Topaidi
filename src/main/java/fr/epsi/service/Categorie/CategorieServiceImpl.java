@@ -27,7 +27,7 @@ public class CategorieServiceImpl implements CategorieService {
       public void create(CategorieDTO cat)  {
 
             Categorie c = new Categorie();
-            cat.setNom(c.getNom());
+            c.setNom(cat.getNom());
             CategorieDao dao =new CategorieDaoImpl(em, utx);
 
             dao.create(c);

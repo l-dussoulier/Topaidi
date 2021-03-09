@@ -1,21 +1,23 @@
 package fr.epsi.controller.Idee;
 
+import fr.epsi.controller.HomeServlet;
 import fr.epsi.dto.CommentaireDTO;
 import fr.epsi.dto.IdeeDTO;
 import fr.epsi.dto.VoteDTO;
 import fr.epsi.entite.Idee;
+import fr.epsi.entite.User;
 import fr.epsi.service.Commentaire.CommentaireService;
 import fr.epsi.service.Idee.IdeeService;
+import fr.epsi.service.User.UserService;
 import fr.epsi.service.Vote.VoteService;
 
 import javax.ejb.EJB;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-
-import static java.lang.Integer.parseInt;
 import static java.lang.Long.parseLong;
 
 
@@ -25,44 +27,76 @@ public class ListIdeeServlet extends HttpServlet {
       @EJB
       private VoteService VoteService;
       @EJB
+      private UserService userService;
+      @EJB
       private CommentaireService CommentaireService;
 
       public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
             request.setAttribute("idees", IdeeService.getIdees());
             request.setAttribute("commentaire", CommentaireService.getCommentaires());
+
             this.getServletContext().getRequestDispatcher("/WEB-INF/idee/Listidees.jsp").forward(request, response);
 
       }
 
       protected void doPost(HttpServletRequest req, HttpServletResponse resp)
               throws ServletException, IOException
-
       {
-            Long idIdee = parseLong(req.getParameter("idee_id"));
-            Idee idee = IdeeService.getById(idIdee);
-
 
             String like = req.getParameter("like");
             String dislike = req.getParameter("dislike");
-            Boolean bool = null;
-            if (like != null){
-                  bool = true;
-            }else if(dislike != null){
-                  bool = false;
-            }
 
+            // recuperation du user
+            Long idUser = (Long) req.getSession().getAttribute("ID_USER");
+            User user =  userService.getById(idUser);
+
+            // recuperation du idée
+            Long idIdee = parseLong(req.getParameter("idee_id"));
+            Idee idee = IdeeService.getById(idIdee);
             VoteDTO vDTO=new VoteDTO();
             vDTO.setIdee(idee);
-            vDTO.setVote(bool);
-            VoteService.create(vDTO);
+            vDTO.setUser(user);
 
+            System.out.println("IdeeService");
+            System.out.println(IdeeService.getHisIdea(idUser,idIdee));
+
+            if (IdeeService.getHisIdea(idUser,idIdee) == 0) {
+                  if (VoteService.getVotesIdeeUser(idUser, idIdee) == 0) {
+                        Boolean bool = null;
+                        if (like != null) {
+                              bool = true;
+                              Long nblike = idee.getTop();
+                              nblike = nblike + 1;
+                              IdeeService.setLike(idee, nblike);
+                        } else if (dislike != null) {
+                              bool = false;
+                              Long nbdislike = idee.getFlop();
+                              nbdislike = nbdislike + 1;
+                              IdeeService.setDisLike(idee, nbdislike);
+                        }
+                        vDTO.setVote(bool);
+                        VoteService.create(vDTO);
+                  }else{
+                        //mettre un message dans le bandeau déja voté pour cette idée
+                        //req.setAttribute("infoIdees", "Impossible de voté plusieurs fois pour une même idée !");
+                  }
+            }else {
+                  //mettre un message dans le bandeau user pas le droit de voté pour son idée
+            }
+
+
+
+
+            // commentaires
             System.out.println(req.getParameter("commentaire"));
             CommentaireDTO cDTO = new CommentaireDTO();
             cDTO.setIdee(idee);
             cDTO.setContent(req.getParameter("commentaire"));
+            cDTO.setUser(user);
             CommentaireService.create(cDTO);
 
 
-            this.getServletContext().getRequestDispatcher("/WEB-INF/idee/Listidees.jsp").forward(req, resp);
+            resp.sendRedirect("../idee/listIdees");
       }
 }

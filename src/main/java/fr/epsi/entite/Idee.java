@@ -2,6 +2,10 @@ package fr.epsi.entite;
 
 import javax.persistence.*;
 
+import java.util.Date;
+
+import static java.lang.Long.parseLong;
+
 
 @Entity
 public class Idee {
@@ -18,6 +22,9 @@ public class Idee {
       @ManyToOne
       @JoinColumn(name="user_id")
       private User user;
+      private Long top = parseLong("0");
+      private Long flop = parseLong("0");
+      private Long dateEmission;
 
 
       public Long getId() {
@@ -66,5 +73,29 @@ public class Idee {
 
       public void setContent(String content) {
             this.content = content;
+      }
+
+      public Long getTop() {
+            return top;
+      }
+
+      public void setTop(Long top) {
+            this.top = top;
+      }
+
+      public Long getFlop() {
+            return flop;
+      }
+
+      public void setFlop(Long flop) {
+            this.flop = flop;
+      }
+
+      public Long getDateEmission() {
+            return dateEmission;
+      }
+
+      public void setDateEmission(Long dateEmission) {
+            this.dateEmission = dateEmission;
       }
 }

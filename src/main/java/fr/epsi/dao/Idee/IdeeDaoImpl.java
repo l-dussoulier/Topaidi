@@ -49,6 +49,81 @@ public class IdeeDaoImpl implements IdeeDao {
 
       @Override
       public List<Idee> getIdees() {
-            return em.createQuery("select i from Idee i", Idee.class).getResultList();
+            return em.createQuery("select i from Idee i ORDER BY i.id DESC", Idee.class).getResultList();
       }
+
+      @Override
+      public void setLike(Idee i, Long top) {
+            try {
+
+                  utx.begin();
+                  i.setTop(top);
+                  em.merge(i);
+                  utx.commit();
+            } catch (NotSupportedException e) {
+                  // TODO Auto-generated catch block
+                  e.printStackTrace();
+            } catch (SystemException e) {
+                  // TODO Auto-generated catch block
+                  e.printStackTrace();
+            } catch (SecurityException e) {
+                  // TODO Auto-generated catch block
+                  e.printStackTrace();
+            } catch (IllegalStateException e) {
+                  // TODO Auto-generated catch block
+                  e.printStackTrace();
+            } catch (RollbackException e) {
+                  // TODO Auto-generated catch block
+                  e.printStackTrace();
+            } catch (HeuristicMixedException e) {
+                  // TODO Auto-generated catch block
+                  e.printStackTrace();
+            } catch (HeuristicRollbackException e) {
+                  // TODO Auto-generated catch block
+                  e.printStackTrace();
+            }
+
+      }
+
+      @Override
+      public void setDisLike(Idee i, Long flop) {
+            try {
+
+                  utx.begin();
+                  i.setFlop(flop);
+                  em.merge(i);
+                  utx.commit();
+            } catch (NotSupportedException e) {
+                  // TODO Auto-generated catch block
+                  e.printStackTrace();
+            } catch (SystemException e) {
+                  // TODO Auto-generated catch block
+                  e.printStackTrace();
+            } catch (SecurityException e) {
+                  // TODO Auto-generated catch block
+                  e.printStackTrace();
+            } catch (IllegalStateException e) {
+                  // TODO Auto-generated catch block
+                  e.printStackTrace();
+            } catch (RollbackException e) {
+                  // TODO Auto-generated catch block
+                  e.printStackTrace();
+            } catch (HeuristicMixedException e) {
+                  // TODO Auto-generated catch block
+                  e.printStackTrace();
+            } catch (HeuristicRollbackException e) {
+                  // TODO Auto-generated catch block
+                  e.printStackTrace();
+            }
+      }
+
+      @Override
+      public long getHisIdea(Long idUser, Long idIdee) {
+            return em.createQuery("select COUNT(i.titre) from Idee i where i.id = :idIdee AND i.user.id = :idUser",Long.class)
+                    .setParameter("idIdee",idIdee)
+                    .setParameter("idUser",idUser)
+                    .getSingleResult();
+      }
+
+
 }

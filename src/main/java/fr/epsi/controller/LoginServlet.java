@@ -19,7 +19,7 @@ public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException
     {
-        this.getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(req, resp);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/auth/login.jsp").forward(req, resp);
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
@@ -32,7 +32,8 @@ public class LoginServlet extends HttpServlet {
          List<User> users = userService.getByEmailPassword(req.getParameter("email"),req.getParameter("password"));
 
          if (users.size() == 0){
-             this.getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(req, resp);
+               req.setAttribute("info","Connexion impossible");
+             this.getServletContext().getRequestDispatcher("/WEB-INF/auth/login.jsp").forward(req, resp);
          }
          else{
              User user = users.get(0);

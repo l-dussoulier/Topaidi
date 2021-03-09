@@ -11,8 +11,9 @@
        <title>Title</title>
 </head>
 <body>
-<%@include file="commons/menu.jsp"%>
-<p>Connecté en tant que <%= request.getSession().getAttribute("EMAIL_USER") %></p>
-
+       <%@include file="commons/menu.jsp"%>
+       <br>
+       <br>
+       <p>Connecté en tant que <%= request.getSession().getAttribute("EMAIL_USER") %></p>
 </body>
 </html>

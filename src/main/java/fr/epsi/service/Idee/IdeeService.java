@@ -14,4 +14,9 @@ public interface IdeeService {
 
       Idee getById(Long id);
 
+      void setLike(Idee i,Long top);
+
+      void setDisLike(Idee i,Long flop);
+
+      long getHisIdea(Long idUser, Long idIdee);
 }

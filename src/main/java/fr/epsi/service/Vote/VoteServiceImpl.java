@@ -3,6 +3,7 @@ package fr.epsi.service.Vote;
 import fr.epsi.dao.Vote.VoteDao;
 import fr.epsi.dao.Vote.VoteDaoImpl;
 import fr.epsi.dto.VoteDTO;
+import fr.epsi.entite.Idee;
 import fr.epsi.entite.Vote;
 
 import javax.annotation.Resource;
@@ -40,5 +41,17 @@ public class VoteServiceImpl implements VoteService {
       public List<Vote> getVotes() {
             VoteDao VoteDao = new VoteDaoImpl(em, utx);
             return VoteDao.getVotes();
+      }
+
+      @Override
+      public Long countVote(Idee idee_id) {
+            VoteDao voteDao = new VoteDaoImpl(em,utx);
+            return voteDao.countVote(idee_id);
+      }
+
+      public Long getVotesIdeeUser(Long idUser, Long idIdee){
+
+            VoteDao voteDao = new VoteDaoImpl(em,utx);
+            return voteDao.getVotesIdeeUser(idUser,idIdee);
       }
 }

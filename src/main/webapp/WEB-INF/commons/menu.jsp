@@ -4,24 +4,40 @@
        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
 </head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-       <a class="navbar-brand" href="#">Topaidi</a>
-       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-       </button>
-       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-              <div class="navbar-nav">
-                     <a class="nav-item nav-link" href="idee/create">Proposer idée</a>
-                     <a class="nav-item nav-link" href="idee/listIdees">Liste idées</a>
-                     <a class="nav-item nav-link disabled" href="#">ajouter catégorie</a>
-                            <!-- Finir affichage par rapport au niveau du role-->
-                            <a class="nav-item nav-link" href="user/listUsers">Liste compte en attente</a>
-                     <a class="nav-item nav-link" href="user/create">Créer compte</a>
-                     <a class="nav-item nav-link" href="logout">Déconnexion</a>
+       <body>
+              <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+                     <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+                            <ul class="navbar-nav mr-auto">
+                                   <li class="nav-item">
+                                          <a class="nav-item nav-link" href="/Topaidi-1.0-SNAPSHOT/idee/create">Proposer idée</a>
+                                   </li>
+                                   <li class="nav-item">
+                                          <a class="nav-item nav-link" href="/Topaidi-1.0-SNAPSHOT/idee/listIdees">Liste idées</a>
+                                   </li>
+                                   <li class="nav-item">
+                                          <a class="nav-item nav-link" href="/Topaidi-1.0-SNAPSHOT/categorie/create">Ajouter catégorie</a>
+                                   </li>
 
-              </div>
-       </div>
-</nav>
-</body>
+                            </ul>
+                     </div>
+                     <div class="mx-auto order-0">
+                            <a class="navbar-brand mx-auto" href="#">Topaidi</a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+                                   <span class="navbar-toggler-icon"></span>
+                            </button>
+                     </div>
+                     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+                            <ul class="navbar-nav ml-auto">
+                                   <li class="nav-item">
+                                          <a class="nav-item nav-link" href="/Topaidi-1.0-SNAPSHOT/user/listUsers">Liste compte en attente</a>
+                                   </li>
+                                   <li class="nav-item">
+                                          <a class="nav-item nav-link text-right" href="/Topaidi-1.0-SNAPSHOT/logout">Déconnexion</a>
+                                   </li>
+                            </ul>
+                     </div>
+              </nav>
+       </body>
+</br>
+</br>
 </html>
