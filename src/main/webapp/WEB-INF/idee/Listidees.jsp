@@ -58,7 +58,9 @@
                             <div class="col-md-4">
                                    <div class="card" style=" overflow: scroll; height: 300px;">
                                           <c:forEach items="${commentaire}" var="commentaire">
-                                          <p><span style="color: grey"><c:out value="${commentaire.user.email}" />: </span> <c:out value="${commentaire.content}"/></p>
+                                                 <c:if test="${ idees.id == commentaire.idee.id }" var="variable">
+                                                        <p><span style="color: grey"><c:out value="${commentaire.user.email}" />: </span> <c:out value="${commentaire.content}"/></p>
+                                                 </c:if>
                                           </c:forEach>
                                    </div>
                                    <form action="listIdees" method="post">
@@ -81,6 +83,7 @@
        </div>
        <br>
        </c:forEach>
+
 
 </div>
 </body>
