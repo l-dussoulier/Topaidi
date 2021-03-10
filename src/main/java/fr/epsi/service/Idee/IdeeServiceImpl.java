@@ -51,6 +51,11 @@ public class IdeeServiceImpl implements IdeeService {
             return IdeeDao.getIdees();
       }
 
+      public List<Idee> getTopIdees() {
+            IdeeDao IdeeDao = new IdeeDaoImpl(em, utx);
+            return IdeeDao.getTopIdees();
+      }
+
       @Override
       public Idee getById(Long id) {
             return em.find(Idee.class, id);

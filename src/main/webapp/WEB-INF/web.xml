@@ -77,6 +77,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>ListTopIdeeServlet</servlet-name>
+        <servlet-class>fr.epsi.controller.Idee.ListTopIdeeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListTopIdeeServlet</servlet-name>
+        <url-pattern>/idee/topIdees</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>CategorieServlet</servlet-name>
         <servlet-class>fr.epsi.controller.CategorieServlet</servlet-class>
     </servlet>

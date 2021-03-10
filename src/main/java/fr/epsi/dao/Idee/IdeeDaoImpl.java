@@ -56,6 +56,11 @@ public class IdeeDaoImpl implements IdeeDao {
       }
 
       @Override
+      public List<Idee> getTopIdees() {
+            return em.createQuery("select i from Idee i ORDER BY i.top DESC", Idee.class).getResultList();
+      }
+
+      @Override
       public void setLike(Idee i, Long top) {
             try {
 

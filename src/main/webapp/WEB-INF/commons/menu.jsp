@@ -15,9 +15,11 @@
                                           <a class="nav-item nav-link" href="/Topaidi-1.0-SNAPSHOT/idee/listIdees">Liste idées</a>
                                    </li>
                                    <li class="nav-item">
+                                          <a class="nav-item nav-link" href="/Topaidi-1.0-SNAPSHOT/idee/topIdees">Top idées</a>
+                                   </li>
+                                   <li class="nav-item">
                                           <a class="nav-item nav-link" href="/Topaidi-1.0-SNAPSHOT/categorie/create">Ajouter catégorie</a>
                                    </li>
-
                             </ul>
                      </div>
                      <div class="mx-auto order-0">
