@@ -50,15 +50,15 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public List<User> getUsers() {
-        return em.createQuery("select u from User u where u.role is null", User.class).getResultList();
+        return em.createQuery("select u from User u", User.class).getResultList();
     }
 
     @Override
-    public void setRole(User u,Role r) {
+    public void setRole(User u,Role r,Boolean isActivate) {
         try {
-
             utx.begin();
             u.setRole(r);
+            u.setActivate(isActivate);
             em.merge(u);
             utx.commit();
         } catch (NotSupportedException e) {

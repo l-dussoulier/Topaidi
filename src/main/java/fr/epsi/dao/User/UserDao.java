@@ -9,7 +9,7 @@ public interface UserDao {
     void create(User u);
     List<User> getUsers();
 
-    void setRole(User u,Role r);
+    void setRole(User u,Role r,Boolean isActivate);
 
     List<User> getByEmailPassword(String email, String password);
 }

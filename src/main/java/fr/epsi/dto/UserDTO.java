@@ -6,6 +6,7 @@ public class UserDTO {
     private String email;
     private String password;
     private fr.epsi.entite.Role role;
+    private Boolean isActivate;
 
     public Long getId() {
         return id;
@@ -38,5 +39,13 @@ public class UserDTO {
 
     public void setRole(fr.epsi.entite.Role role) {
         this.role = role;
+    }
+
+    public Boolean getActivate() {
+        return isActivate;
+    }
+
+    public void setActivate(Boolean activate) {
+        isActivate = activate;
     }
 }

@@ -13,6 +13,8 @@ public class User {
       @JoinColumn(name="role_id")
       private Role role;
 
+      private Boolean isActivate;
+
       public Long getId() {
             return id;
       }
@@ -44,5 +46,13 @@ public class User {
 
       public void setRole(Role role) {
             this.role = role;
+      }
+
+      public Boolean getActivate() {
+            return isActivate;
+      }
+
+      public void setActivate(Boolean activate) {
+            isActivate = activate;
       }
 }

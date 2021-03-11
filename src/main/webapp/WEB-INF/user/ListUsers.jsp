@@ -15,15 +15,15 @@
                      <th>id</th>
                      <th>Email</th>
                      <th>Role</th>
+                     <th>Activé</th>
                      <th></th>
 
               </tr>
               </thead>
               <tbody>
-              <form action="listUsers" method="post">
               <c:forEach items="${users}" var="users">
+              <form action="listUsers" method="post">
                      <tr>
-
                             <td>
                                    <input type="text" name="idUser" value="<c:out value="${users.id}" />" hidden ><c:out value="${users.id}" />
                             </td>
@@ -32,20 +32,31 @@
                             </td>
 
                             <td>
-                                   <select name="role-select">
+                                   <select name="role-select" />">
                                           <c:forEach items="${roles}" var="roles">
-                                                 <option value="<c:out value="${ roles.id }" />"><c:out value="${ roles.nom }" /></option>
+                                                 <option name="inputT" value="<c:out value="${ roles.id }" />"
+                                                         <c:if test="${ users.role.nom == roles.nom }">selected="selected"</c:if>
+                                                 >
+                                                        <c:out value="${ roles.nom }"/>
+                                                 </option>
                                           </c:forEach>
                                    </select>
 
                             </td>
                             <td>
+                                   <input type="checkbox" name="isActivate" <c:if test="${ users.activate == true }">
+                                          checked
+                                   </c:if>/>
+
+                            </td>
+
+                            <td>
                                    <button class="btn btn-success" type="submit" >Valider</button>
                             </td>
 
                      </tr>
-              </c:forEach>
               </form>
+              </c:forEach>
               </tbody>
        </table>
 </div>

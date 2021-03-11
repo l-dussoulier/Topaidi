@@ -36,6 +36,7 @@ public class UserServiceImpl implements UserService {
             User u = new User();
             u.setEmail(userDTO.getEmail());
             u.setPassword(userDTO.getPassword());
+            u.setActivate(Boolean.FALSE);
             UserDao dao =new UserDaoImpl(em, utx);
 
             dao.create(u);
@@ -53,9 +54,9 @@ public class UserServiceImpl implements UserService {
       }
 
 
-      public void setRole(User u, Role r) {
+      public void setRole(User u, Role r,Boolean isActivate) {
             UserDao UserDao = new UserDaoImpl(em, utx);
-            UserDao.setRole(u,r);
+            UserDao.setRole(u,r,isActivate);
       }
 
       public List<User> getByEmailPassword(String email, String password) {

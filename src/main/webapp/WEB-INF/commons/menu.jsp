@@ -28,9 +28,11 @@
                      </div>
                      <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
                             <ul class="navbar-nav ml-auto">
-                                   <li class="nav-item">
-                                          <a class="nav-item nav-link" href="/Topaidi-1.0-SNAPSHOT/user/listUsers">Liste compte en attente</a>
-                                   </li>
+                                   <c:if test="${session.ROLEID_USER == 1 }">
+                                          <li class="nav-item">
+                                                 <a class="nav-item nav-link" href="/Topaidi-1.0-SNAPSHOT/user/listUsers">Liste des comptes</a>
+                                          </li>
+                                   </c:if>
                                    <li class="nav-item">
                                           <a class="nav-item nav-link text-right" href="/Topaidi-1.0-SNAPSHOT/logout">Déconnexion</a>
                                    </li>
@@ -41,3 +43,4 @@
 </br>
 </br>
 </html>
+

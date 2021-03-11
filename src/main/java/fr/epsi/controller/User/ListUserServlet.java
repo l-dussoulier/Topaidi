@@ -38,14 +38,24 @@ public class ListUserServlet extends HttpServlet {
 
       {
 
-
             Long idRole = parseLong(req.getParameter("role-select"));
             Role role =  roleService.getById(idRole);
             Long idUser = parseLong(req.getParameter("idUser"));
+            String isActivate = req.getParameter("isActivate");
             User user =  UserService.getById(idUser);
 
-            UserService.setRole(user,role);
+            if (isActivate == null){
+                  isActivate = "FAlse";
+            }
+            else {
+                 isActivate = "TRue";
+            }
+            boolean bool =Boolean.parseBoolean(isActivate);
 
+            UserService.setRole(user,role,bool);
+            System.out.println(user.getRole().getNiveau());
+            req.getSession().setAttribute("ROLEID_USER",user.getRole().getNiveau());
+            System.out.println(req.getSession().getAttribute("ROLEID_USER"));
             req.setAttribute("info","modification de l'utilisateur " +user.getEmail()+" Réussite");
             this.getServletContext().getRequestDispatcher("/WEB-INF/home.jsp").forward(req, resp);
       }

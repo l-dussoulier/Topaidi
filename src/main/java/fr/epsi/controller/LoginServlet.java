@@ -31,24 +31,30 @@ public class LoginServlet extends HttpServlet {
 
          List<User> users = userService.getByEmailPassword(req.getParameter("email"),req.getParameter("password"));
 
-         if (users.size() == 0){
-               req.setAttribute("info","Connexion impossible");
-             this.getServletContext().getRequestDispatcher("/WEB-INF/auth/login.jsp").forward(req, resp);
-         }
-         else{
-             User user = users.get(0);
+
+               if (users.size() == 0) {
+                     req.setAttribute("info","Connexion impossible");
+                     this.getServletContext().getRequestDispatcher("/WEB-INF/auth/login.jsp").forward(req, resp);
+               }
+               if (users.get(0).getActivate() == false){
+                     req.setAttribute("info","Utilisateur "+users.get(0).getEmail() +" est bloqué");
+                     this.getServletContext().getRequestDispatcher("/WEB-INF/auth/login.jsp").forward(req, resp);
+               }
+               else{
+                     User user = users.get(0);
 
 
-             req.getSession().setAttribute("ID_USER",user.getId());
-             req.getSession().setAttribute("EMAIL_USER",user.getEmail());
-             req.getSession().setAttribute("ROLEID_USER",user.getRole().getNiveau());
-             System.out.println(req.getSession().getAttribute("ROLEID_USER").getClass());
-               System.out.println(user.getRole().getNiveau());
+                     req.getSession().setAttribute("ID_USER",user.getId());
+                     req.getSession().setAttribute("EMAIL_USER",user.getEmail());
+                     req.getSession().setAttribute("ROLEID_USER",user.getRole().getNiveau());
+                     System.out.println(req.getSession().getAttribute("ROLEID_USER").getClass());
+                     System.out.println(user.getRole().getNiveau());
 
 
 
-             this.getServletContext().getRequestDispatcher("/WEB-INF/home.jsp").forward(req, resp);
-         }
+                     this.getServletContext().getRequestDispatcher("/WEB-INF/home.jsp").forward(req, resp);
+               }
+
 
     }
 
