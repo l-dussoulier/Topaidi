@@ -13,6 +13,8 @@ public interface IdeeService {
 
       List<Idee> getIdees();
 
+      List<Idee> getTopIdees();
+
       Idee getById(Long id);
 
       void setLike(Idee i,Long top);

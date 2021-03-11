@@ -10,6 +10,8 @@ public interface IdeeDao {
 
       List<Idee> getIdees();
 
+      List<Idee> getTopIdees();
+
       void setLike(Idee i, Long top);
 
       void setDisLike(Idee i, Long flop);
