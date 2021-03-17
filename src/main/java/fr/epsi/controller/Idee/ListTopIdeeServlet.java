@@ -8,14 +8,18 @@ import fr.epsi.service.Commentaire.CommentaireService;
 import fr.epsi.service.Idee.IdeeService;
 import fr.epsi.service.User.UserService;
 import fr.epsi.service.Vote.VoteService;
+import org.w3c.dom.ls.LSInput;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.Console;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import static java.lang.Long.parseLong;
 
@@ -31,7 +35,61 @@ public class ListTopIdeeServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-        request.setAttribute("topIdees", IdeeService.getTopIdees());
+        List<Idee> i = IdeeService.getTopIdees();
+        List<Idee> idees = new ArrayList<>();
+        List<Double> pourcentages = new ArrayList<>();
+
+        for (Idee idee : i){
+            Long top = idee.getTop();
+            Long flop = idee.getFlop();
+            Long total = top + flop;
+            System.out.println("idee "+ idee.getTitre());
+            System.out.println("total "+total);
+            Double pourcentage = 0.0;
+            boolean estDernier = true;
+
+            if (top > 0) {
+                pourcentage = (top.doubleValue() / total.doubleValue() * 100);
+            }
+
+            if (idees.size() == 0) {
+                idees.add(idee);
+                pourcentages.add(pourcentage);
+                estDernier = false;
+            } else for (int x = 0; x < idees.size(); x++) {
+                if (pourcentage > pourcentages.get(x)) {
+                    idees.add(x, idee);
+                    pourcentages.add(x, pourcentage);
+                    estDernier = false;
+                    break;
+                } else {
+                    if (pourcentage.equals(pourcentages.get(x))) {
+                        System.out.println("EGALITE");
+                        Long totalTabl = (idees.get(x).getTop() + idees.get(x).getFlop());
+                        if (totalTabl > total){
+                            idees.add(x+1, idee);
+                            pourcentages.add(x+1, pourcentage);
+                            System.out.println("tabl " + totalTabl);
+                            System.out.println("calc " + total);
+                        } else {
+                            idees.add(x, idee);
+                            pourcentages.add(x, pourcentage);
+                            System.out.println("tabl " + totalTabl);
+                            System.out.println("calc " + total);
+                        }
+                        estDernier = false;
+                        break;
+                    }
+                }
+            }
+            if (estDernier) {
+                idees.add(idee);
+                pourcentages.add(pourcentage);
+            }
+        }
+
+
+        request.setAttribute("topIdees", idees);
         request.setAttribute("commentaire", CommentaireService.getCommentaires());
 
         this.getServletContext().getRequestDispatcher("/WEB-INF/idee/topIdees.jsp").forward(request, response);
