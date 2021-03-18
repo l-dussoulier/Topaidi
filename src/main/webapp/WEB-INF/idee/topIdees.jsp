@@ -56,6 +56,13 @@
                             <p style="width: 30rem;"><c:out value="${topIdees.content}" /></p>
                         </div>
                         <div class="col-md-4">
+                            <div class="card" style=" overflow: scroll; height: 300px;">
+                                <c:forEach items="${commentaire}" var="commentaire">
+                                    <c:if test="${ topIdees.id == commentaire.idee.id }" var="variable">
+                                        <p><span style="color: grey"><c:out value="${commentaire.user.email}" />: </span> <c:out value="${commentaire.content}"/></p>
+                                    </c:if>
+                                </c:forEach>
+                            </div>
                             <form action="listIdees" method="post">
                                 <div class="input-group mb-3" style="margin-top: 10px;">
                                     <input class="form-control" type="text" name="idee_id" value="<c:out value="${topIdees.id}"/>" hidden>
@@ -66,13 +73,6 @@
                                     </div>
                                 </div>
                             </form>
-                            <div class="card" style=" overflow: scroll; height: 300px;">
-                                <c:forEach items="${commentaire}" var="commentaire">
-                                    <c:if test="${ topIdees.id == commentaire.idee.id }" var="variable">
-                                        <p><span style="color: grey"><c:out value="${commentaire.user.email}" />: </span> <c:out value="${commentaire.content}"/></p>
-                                    </c:if>
-                                </c:forEach>
-                            </div>
                         </div>
 
                         <footer class="blockquote-footer">écrit par <c:out value="${topIdees.user.email}" /> à  <fmt:formatDate pattern="HH:mm" type="date" value="${topIdees.dateEmission}"/> le <fmt:formatDate pattern="dd/MM/yy" type="date" value="${topIdees.dateEmission}" />

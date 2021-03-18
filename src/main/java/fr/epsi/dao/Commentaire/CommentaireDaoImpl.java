@@ -48,6 +48,6 @@ public class CommentaireDaoImpl implements CommentaireDao {
 
     @Override
     public List<Commentaire> getCommentaires() {
-        return em.createQuery("select com from Commentaire com ORDER BY com.id DESC", Commentaire.class).getResultList();
+        return em.createQuery("select com from Commentaire com ORDER BY com.id asc", Commentaire.class).getResultList();
     }
 }

@@ -141,11 +141,11 @@ public class ListTopIdeeServlet extends HttpServlet {
                 }
             }else {
                 //mettre un message dans le bandeau user pas le droit de voté pour son idée
-                System.out.println("Vous n'avez pas le droit de voté pour votre idée");
+                System.out.println("Vous n'avez pas le droit de voter pour votre idée");
             }
         } else {
             //mettre un message dans le bandeau user à dépassé la  date limite
-            System.out.println("Vous n'avez dépassé la date limite pour voté");
+            System.out.println("Vous avez dépassé la date limite pour voter");
         }
 
         if (commentaire != null) {
@@ -156,6 +156,6 @@ public class ListTopIdeeServlet extends HttpServlet {
             CommentaireService.create(cDTO);
         }
 
-        resp.sendRedirect("../idee/listIdees");
+        resp.sendRedirect("../idee/topIdees");
     }
 }
