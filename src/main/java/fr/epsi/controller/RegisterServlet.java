@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 public class RegisterServlet extends HttpServlet {
@@ -28,14 +31,34 @@ public class RegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException
     {
+          if (userService.getByEmail(req.getParameter("email")).size() > 0){
+                req.setAttribute("info", "Email déjà utilisé");
+                this.getServletContext().getRequestDispatcher("/WEB-INF/auth/login.jsp").forward(req, resp);
+          }else
+                {
+                UserDTO userDTO = new UserDTO();
+                userDTO.setEmail(req.getParameter("email"));
+                // MH5
+                String plaintext = req.getParameter("password");
+                MessageDigest m = null;
+                try {
+                      m = MessageDigest.getInstance("MD5");
+                } catch (NoSuchAlgorithmException e) {
+                      e.printStackTrace();
+                }
+                m.reset();
+                m.update(plaintext.getBytes());
+                byte[] digest = m.digest();
+                BigInteger bigInt = new BigInteger(1,digest);
+                String hashtext = bigInt.toString(16);
+                // Fin
 
-          UserDTO userDTO = new UserDTO();
-          userDTO.setEmail(req.getParameter("email"));
-          userDTO.setPassword(req.getParameter("password"));
-          userService.create(userDTO);
+                userDTO.setPassword(hashtext);
+                userService.create(userDTO);
 
-          req.setAttribute("info", "User créé");
-             this.getServletContext().getRequestDispatcher("/WEB-INF/auth/login.jsp").forward(req, resp);
+                req.setAttribute("info", "User créé");
+                this.getServletContext().getRequestDispatcher("/WEB-INF/auth/login.jsp").forward(req, resp);
+                }
          }
 
     }

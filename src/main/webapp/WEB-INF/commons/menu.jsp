@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -20,21 +22,29 @@
                                    <li class="nav-item">
                                           <a class="nav-item nav-link" href="/Topaidi-1.0-SNAPSHOT/categorie/create">Ajouter catégorie</a>
                                    </li>
+                                   <%
+                                          Integer i = Integer.parseInt(request.getSession().getAttribute("ROLEID_USER").toString());
+                                          if (i == 1){
+                                                 out.println("<li class='nav-item'>");
+                                                 out.println("<a class=\"nav-item nav-link\" href=\"/Topaidi-1.0-SNAPSHOT/user/listUsers\">");
+                                                 out.println("Liste des utilisateurs");
+                                                 out.println("</a>");
+                                                 out.println("</li>");
+                                          }
+                                   %>
                             </ul>
                      </div>
                      <div class="mx-auto order-0">
-                            <a class="navbar-brand mx-auto" href="#">Topaidi</a>
+                            <a class="navbar-brand mx-auto" href="/Topaidi-1.0-SNAPSHOT/home">Topaidi</a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
                                    <span class="navbar-toggler-icon"></span>
                             </button>
                      </div>
                      <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
                             <ul class="navbar-nav ml-auto">
-                                   <c:if test="${session.ROLEID_USER == 1 }">
-                                          <li class="nav-item">
-                                                 <a class="nav-item nav-link" href="/Topaidi-1.0-SNAPSHOT/user/listUsers">Liste des comptes</a>
-                                          </li>
-                                   </c:if>
+                                   <li class="nav-item">
+                                          <a class="nav-item nav-link text-right"><%= request.getSession().getAttribute("EMAIL_USER") %></a>
+                                   </li>
                                    <li class="nav-item">
                                           <a class="nav-item nav-link text-right" href="/Topaidi-1.0-SNAPSHOT/logout">Déconnexion</a>
                                    </li>

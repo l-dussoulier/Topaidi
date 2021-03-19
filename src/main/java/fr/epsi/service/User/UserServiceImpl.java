@@ -65,5 +65,16 @@ public class UserServiceImpl implements UserService {
       }
 
 
+      public List<User> getByEmail(String email) {
+            UserDao UserDao = new UserDaoImpl(em, utx);
+            return UserDao.getByEmail(email);
+      }
+
+      @Override
+      public void delete(User user) {
+            UserDao userDao = new UserDaoImpl(em,utx);
+            userDao.delete(user);
+      }
+
 
 }

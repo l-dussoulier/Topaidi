@@ -14,6 +14,6 @@
        <%@include file="commons/menu.jsp"%>
        <br>
        <br>
-       <p>Connecté en tant que <%= request.getSession().getAttribute("EMAIL_USER") %></p>
+
 </body>
 </html>

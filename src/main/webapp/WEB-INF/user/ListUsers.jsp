@@ -8,7 +8,7 @@
 <body>
 <%@include file="../commons/menu.jsp"%>
 <div class="col-12">
-       <h2>Liste des utilisateurs en attente</h2>
+       <h2>Liste des utilisateurs</h2>
        <table class="table table-hover">
               <thead>
               <tr>
@@ -16,6 +16,7 @@
                      <th>Email</th>
                      <th>Role</th>
                      <th>Activé</th>
+                     <th></th>
                      <th></th>
 
               </tr>
@@ -52,6 +53,9 @@
 
                             <td>
                                    <button class="btn btn-success" type="submit" >Valider</button>
+                            </td>
+                            <td>
+                                   <button class="btn btn-warning" type="submit" value="delete" name="delete">Supprimer</button>
                             </td>
 
                      </tr>

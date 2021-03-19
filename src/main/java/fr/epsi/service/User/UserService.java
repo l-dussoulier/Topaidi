@@ -17,5 +17,8 @@ public interface UserService {
 
     List<User> getByEmailPassword(String email,String password);
 
+    List<User> getByEmail(String email);
 
+
+      void delete(User user);
 }

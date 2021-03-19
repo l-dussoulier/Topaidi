@@ -38,6 +38,8 @@ public class ListUserServlet extends HttpServlet {
 
       {
 
+
+
             Long idRole = parseLong(req.getParameter("role-select"));
             Role role =  roleService.getById(idRole);
             Long idUser = parseLong(req.getParameter("idUser"));
@@ -53,10 +55,17 @@ public class ListUserServlet extends HttpServlet {
             boolean bool =Boolean.parseBoolean(isActivate);
 
             UserService.setRole(user,role,bool);
-            System.out.println(user.getRole().getNiveau());
             req.getSession().setAttribute("ROLEID_USER",user.getRole().getNiveau());
-            System.out.println(req.getSession().getAttribute("ROLEID_USER"));
             req.setAttribute("info","modification de l'utilisateur " +user.getEmail()+" Réussite");
+
+            String delete = req.getParameter("delete");
+            if (delete != null){
+                  System.out.println("delete "+idUser);
+                  UserService.delete(user);
+                  resp.sendRedirect("../user/listUsers");
+            }
+
+
             this.getServletContext().getRequestDispatcher("/WEB-INF/home.jsp").forward(req, resp);
       }
 }

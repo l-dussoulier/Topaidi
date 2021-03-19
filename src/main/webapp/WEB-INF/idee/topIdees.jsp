@@ -5,23 +5,30 @@
 <html>
 <head>
 
-    <title>Liste des idées</title>
+    <title>Liste des idées classées par Tops</title>
 
 </head>
 <body>
 <%@include file="../commons/menu.jsp"%>
-<div class="col-12">
-    <h2>Liste des idées</h2>
-    <br>
+<div class="row">
+<div class="col-md-2"></div>
+<div class="col-8">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <h1 style="text-align: center;">Liste des idées classées par Tops</h1>
+        </div>
+        <div class="col-md-2">
+            <a class="btn btn-primary text-right" href="create">Ajouter une idée</a>
+        </div>
+    </div>
     <c:out value="${ infoIdees }" />
-    <a class="btn btn-primary text-left" href="create">Ajouter une idée</a>
-    <br>
     <br>
     <br>
 
 
     <c:forEach items="${topIdees}" var="topIdees">
-        <div class="card">
+        <div class="card shadow">
             <div class="card-header">
                 <form action="listIdees" method="post">
                     <div class="row">
@@ -56,7 +63,7 @@
                             <p style="width: 30rem;"><c:out value="${topIdees.content}" /></p>
                         </div>
                         <div class="col-md-4">
-                            <div class="card" style=" overflow: scroll; height: 300px;">
+                            <div class="card shadow" style=" overflow: scroll; height: 300px;">
                                 <c:forEach items="${commentaire}" var="commentaire">
                                     <c:if test="${ topIdees.id == commentaire.idee.id }" var="variable">
                                         <p><span style="color: grey"><c:out value="${commentaire.user.email}" />: </span> <c:out value="${commentaire.content}"/></p>
@@ -66,10 +73,10 @@
                             <form action="listIdees" method="post">
                                 <div class="input-group mb-3" style="margin-top: 10px;">
                                     <input class="form-control" type="text" name="idee_id" value="<c:out value="${topIdees.id}"/>" hidden>
-                                    <input class="form-control" type="text" placeholder="Ajouter un commentaire ..." class="form-control" id="commentaireInput" name="commentaire">
+                                    <input class="form-control shadow" type="text" placeholder="Ajouter un commentaire ..." class="form-control" id="commentaireInput" name="commentaire">
 
                                     <div class="input-group-append">
-                                        <button type="submit" class="btn btn-outline-secondary" name="commentaire" value="3">Envoyer</button>
+                                        <button type="submit" class="btn btn-outline-secondary shadow" name="commentaire" value="3">Envoyer</button>
                                     </div>
                                 </div>
                             </form>
@@ -84,7 +91,7 @@
         <br>
     </c:forEach>
 
-
+</div>
 </div>
 </body>
 </html>

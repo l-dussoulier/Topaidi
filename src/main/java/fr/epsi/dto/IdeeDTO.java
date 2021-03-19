@@ -17,6 +17,7 @@ public class IdeeDTO {
       private Long top;
       private Long flop;
       private Date dateEmission;
+      private Long pourcent;
 
 
 
@@ -91,5 +92,13 @@ public class IdeeDTO {
 
       public void setDateEmission(Date dateEmission) {
             this.dateEmission = dateEmission;
+      }
+
+      public Long getPourcent() {
+            return pourcent;
+      }
+
+      public void setPourcent(Long pourcent) {
+            this.pourcent = pourcent;
       }
 }
