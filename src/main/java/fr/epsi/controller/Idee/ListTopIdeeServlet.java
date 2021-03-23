@@ -43,8 +43,6 @@ public class ListTopIdeeServlet extends HttpServlet {
             Long top = idee.getTop();
             Long flop = idee.getFlop();
             Long total = top + flop;
-            System.out.println("idee "+ idee.getTitre());
-            System.out.println("total "+total);
             Double pourcentage = 0.0;
             boolean estDernier = true;
 
@@ -64,18 +62,13 @@ public class ListTopIdeeServlet extends HttpServlet {
                     break;
                 } else {
                     if (pourcentage.equals(pourcentages.get(x))) {
-                        System.out.println("EGALITE");
                         Long totalTabl = (idees.get(x).getTop() + idees.get(x).getFlop());
                         if (totalTabl > total){
                             idees.add(x+1, idee);
                             pourcentages.add(x+1, pourcentage);
-                            System.out.println("tabl " + totalTabl);
-                            System.out.println("calc " + total);
                         } else {
                             idees.add(x, idee);
                             pourcentages.add(x, pourcentage);
-                            System.out.println("tabl " + totalTabl);
-                            System.out.println("calc " + total);
                         }
                         estDernier = false;
                         break;
@@ -115,9 +108,7 @@ public class ListTopIdeeServlet extends HttpServlet {
         vDTO.setIdee(idee);
         vDTO.setUser(user);
 
-        System.out.println("IdeeService");
         Date date = new Date();
-        System.out.println(IdeeService.getGoodDate(idIdee,date));
         if(IdeeService.getGoodDate(idIdee,date) == 0 ){
             if (IdeeService.getHisIdea(idUser,idIdee) == 0) {
                 if (VoteService.getVotesIdeeUser(idUser, idIdee) == 0) {
@@ -155,7 +146,7 @@ public class ListTopIdeeServlet extends HttpServlet {
             cDTO.setUser(user);
             CommentaireService.create(cDTO);
         }
-
+        System.out.println("test");
         resp.sendRedirect("../idee/topIdees");
     }
 }

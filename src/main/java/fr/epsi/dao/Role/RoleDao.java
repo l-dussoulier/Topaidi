@@ -8,6 +8,5 @@ import java.util.List;
 public interface RoleDao {
     void create(Role r);
     List<Role> getRoles();
-
-
+      Role getLastRole();
 }

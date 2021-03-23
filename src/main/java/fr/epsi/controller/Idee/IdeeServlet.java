@@ -33,12 +33,6 @@ public class IdeeServlet extends HttpServlet {
               throws ServletException, IOException
       {
             req.setAttribute("categories", CategorieService.getCategories());
-            System.out.println(CategorieService.getCategories());
-            for (Categorie cat : CategorieService.getCategories()) {
-
-                  System.out.println(cat.getId());
-                  System.out.println(cat.getNom());
-            }
 
             this.getServletContext().getRequestDispatcher("/WEB-INF/idee/create.jsp").forward(req, resp);
       }
@@ -48,17 +42,10 @@ public class IdeeServlet extends HttpServlet {
 
       {
 
-            System.out.println( req.getParameter("email"));
-            System.out.println( req.getParameter("categorie-select"));
-            System.out.println( req.getParameter("texte"));
-            System.out.println( req.getParameter("lien"));
-
-
             // récuperer une catégorie par id
             Long idCat = parseLong(req.getParameter("categorie-select"));
             Categorie cat = CategorieService.getById(idCat);
             User user= userService.getById((Long) req.getSession().getAttribute("ID_USER"));
-            System.out.println(user);
 
             IdeeDTO iDTO=new IdeeDTO();
             iDTO.setCategorie(cat);

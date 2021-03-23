@@ -94,6 +94,15 @@
         <url-pattern>/categorie/create</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>RoleServlet</servlet-name>
+        <servlet-class>fr.epsi.controller.Role.RoleServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RoleServlet</servlet-name>
+        <url-pattern>/role/create</url-pattern>
+    </servlet-mapping>
+
 
 
 

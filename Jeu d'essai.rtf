@@ -1,0 +1,44 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2578
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww14400\viewh14840\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 INSERT INTO Role (id, Niveau, Nom) VALUES\
+(1, 1, 'Admin'),\
+(2, 2, 'User'),\
+(3, NULL, 'test');\
+\
+\
+INSERT INTO User (id, email, isActivate, password, role_id) VALUES\
+(1, 'l@l.fr', b'1', '5f4dcc3b5aa765d61d8327deb882cf99', 1),\
+(2, 'm@m.fr', b'1', 'dc647eb65e6711e155375218212b3964', 3),\
+(3, 'a@a.fr', b'1', 'd41e98d1eafa6d6011d3a70f1a5b92f0', 2);\
+\
+\
+INSERT INTO Categorie (id, nom) VALUES\
+(1, 'Sport'),\
+(2, 'Nature'),\
+(3, 'Technologie'),\
+(4, 'Finance'),\
+(5, '');\
+\
+INSERT INTO Idee (id, content, dateEmission, flop, lienImage, titre, top, categorie_id, user_id) VALUES\
+(1, 'Je souhaiterais cr\'e9er une crypto monnaie sur la technologie de la block chain.', '2021-03-19 09:53:23.845000', 0, 'https://static.latribune.fr/full_width/1602271/l-emergence-du-bitcoin-comme-or-numerique-pourrait-le-faire-bondir-a-146-000-selon-jpm.jpg', 'Cr\'e9ation d\\'une crypto monnaie fran\'e7aise', 1, 3, 1),\
+(2, 'Je vous propose mon id\'c3\'a9e de marathon sur les quais de Bordeaux', '2021-03-19 09:56:39.341000', 0, 'https://wmimg.azureedge.net/public/img/marathons/marathon-de-montpellier/bIAqiW_marathon-de-montpellier.jpg', 'Organisation un marathon ! ', 1, 1, 2),\
+(3, 'Cr\'c3\'a9ation d\\'une p\'c3\'a9tition contre le non respect des mesures mises en place contre le r\'c3\'a9chauffement climatiques', '2021-03-19 09:59:55.461000', 0, 'https://naturosoin.com/wp-content/uploads/2019/02/arbre-foret-naturosoin-sylvotherapie-diversite_600x600.jpg', 'Attention au arbres dans les villes', 0, 1, 3),\
+(4, 'Cr\'c3\'a9ation d\\'une StartUp pour la gestion des d\'c3\'a9chets dans la Garonne pour rendre les  eaux moins pollu\'c3\'a9es ', '2021-03-19 10:02:33.514000', 0, 'https://images.sudouest.fr/2019/06/20/5d0ce07566a4bd3d695ac1fa/widescreen/1000x500/la-garonne-fait-partie.jpg', 'StartUp pour la gestion des d\'c3\'a9chets dans la Garonne', 0, 3, 3),\
+(5, 'test', '2021-03-19 12:17:56.797000', 0, '', 'test', 0, 1, 1),\
+(6, 'r\'c3\'a9\'c3\'a9\'c3\'a9\'c3\'a9', '2021-03-19 12:18:03.741000', 0, '', 't\'c3\'a9qqqq', 0, 1, 1),\
+(7, 't\'c3\'a9t\'c3\'a9s', '2021-03-19 12:18:50.808000', 0, '', 't\'c3\'a9t\'c3\'a9\'c3\'a9t', 0, 1, 1);\
+\
+\
+INSERT INTO Commentaire (id, content, idee_id, user_id) VALUES\
+(1, 'Je supporte le projet! ', 1, 3),\
+(2, 'Super tr\'c3\'a8s belle initiative ', 2, 3);\
+\
+\
+INSERT INTO Vote (id, vote, idee_id, user_id) VALUES\
+(1, b'1', 2, 3),\
+(2, b'1', 1, 3);}

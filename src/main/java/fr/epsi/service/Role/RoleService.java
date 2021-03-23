@@ -10,4 +10,6 @@ public interface RoleService {
     void create(RoleDTO r);
     List<Role> getRoles();
     Role getById(Long id);
+
+    Role LastRole();
 }

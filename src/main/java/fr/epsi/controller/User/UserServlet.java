@@ -28,9 +28,6 @@ public class UserServlet extends HttpServlet {
             throws ServletException, IOException
 
     {
-        System.out.println( req.getParameter("email"));
-        System.out.println( req.getParameter("password"));
-
         UserDTO uDTO =new UserDTO();
         uDTO.setEmail(req.getParameter("email"));
         uDTO.setPassword(req.getParameter("password"));

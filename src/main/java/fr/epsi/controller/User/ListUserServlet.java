@@ -27,8 +27,10 @@ public class ListUserServlet extends HttpServlet {
 
 
       public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+
             request.setAttribute("users", UserService.getUsers());
             request.setAttribute("roles", roleService.getRoles());
+
             this.getServletContext().getRequestDispatcher("/WEB-INF/user/ListUsers.jsp").forward(request, response);
 
       }
@@ -37,9 +39,6 @@ public class ListUserServlet extends HttpServlet {
               throws ServletException, IOException
 
       {
-
-
-
             Long idRole = parseLong(req.getParameter("role-select"));
             Role role =  roleService.getById(idRole);
             Long idUser = parseLong(req.getParameter("idUser"));

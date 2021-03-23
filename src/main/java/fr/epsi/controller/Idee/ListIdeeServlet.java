@@ -63,7 +63,6 @@ public class ListIdeeServlet extends HttpServlet {
 
             System.out.println("IdeeService");
             Date date = new Date();
-            System.out.println(IdeeService.getGoodDate(idIdee,date));
             if(IdeeService.getGoodDate(idIdee,date) == 0 ){
                   if (IdeeService.getHisIdea(idUser,idIdee) == 0) {
                         if (VoteService.getVotesIdeeUser(idUser, idIdee) == 0) {
@@ -88,6 +87,8 @@ public class ListIdeeServlet extends HttpServlet {
                   }else {
                         //mettre un message dans le bandeau user pas le droit de voté pour son idée
                         System.out.println("Vous n'avez pas le droit de voté pour votre idée");
+                        req.setAttribute("infoIdees", "Vous n'avez pas le droit de voté pour votre idée");
+
                   }
             } else {
                   //mettre un message dans le bandeau user à dépassé la  date limite
@@ -102,6 +103,8 @@ public class ListIdeeServlet extends HttpServlet {
                   CommentaireService.create(cDTO);
             }
 
+            this.getServletContext().getRequestDispatcher("/WEB-INF/idee/Listidees.jsp").forward(req, resp);
+            //req.setAttribute("infoIdees", "Vous n'avez pas le droit de voté pour votre idée");
             resp.sendRedirect("../idee/listIdees");
       }
 }

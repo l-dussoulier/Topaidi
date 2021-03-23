@@ -66,7 +66,7 @@
                                    <form action="listIdees" method="post">
                                           <div class="input-group mb-3" style="margin-top: 10px;">
                                                  <input class="form-control" type="text" name="idee_id" value="<c:out value="${idees.id}"/>" hidden>
-                                                 <input class="form-control" type="text" placeholder="Ajouter un commentaire ..." class="form-control" id="commentaireInput" name="commentaire">
+                                                 <input class="form-control" type="text" placeholder="Ajouter un commentaire ..." class="form-control" id="commentaireInput" name="commentaire" required>
 
                                                  <div class="input-group-append">
                                                         <button type="submit" class="btn btn-outline-secondary" name="commentaire" value="3">Envoyer</button>

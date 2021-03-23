@@ -1,8 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <html>
 <head>
+       <meta charset="UTF-8">
        <title>Création d'une idée</title>
+
 </head>
 <body>
        <%@include file="../commons/menu.jsp"%>
@@ -29,11 +31,11 @@
                      </div>
                      <div class="form-group">
                             <label for="titrelabel">Titre</label>
-                            <input class="form-control" id="titrelabel"  name="titre">
+                            <input class="form-control" id="titrelabel"  name="titre" required>
                      </div>
                      <div class="form-group">
                             <label for="exampleFormControlTextarea1">Votre proposition</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="texte"></textarea>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="texte" required></textarea>
                      </div>
                      <div class="form-group">
                             <label>Lien image</label>

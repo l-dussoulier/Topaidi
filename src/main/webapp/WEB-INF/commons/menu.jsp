@@ -22,6 +22,9 @@
                                    <li class="nav-item">
                                           <a class="nav-item nav-link" href="/Topaidi-1.0-SNAPSHOT/categorie/create">Ajouter catégorie</a>
                                    </li>
+                                   <li class="nav-item">
+                                          <a class="nav-item nav-link" href="/Topaidi-1.0-SNAPSHOT/role/create">Ajouter un role</a>
+                                   </li>
                                    <%
                                           Integer i = Integer.parseInt(request.getSession().getAttribute("ROLEID_USER").toString());
                                           if (i == 1){

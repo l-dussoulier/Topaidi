@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: louis
-  Date: 16/02/2021
-  Time: 15:32
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core_rt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -14,6 +8,7 @@
        <%@include file="commons/menu.jsp"%>
        <br>
        <br>
+       <c:out value="${ info }" />
 
 </body>
 </html>

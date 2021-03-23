@@ -4,15 +4,15 @@
 <head>
 </head>
 <body>
-<%@include file="commons/menu.jsp"%>
+<%@include file="../commons/menu.jsp"%>
 
 <div class="row" style="margin-top: 10px;">
        <div class="col-md-5"></div>
        <div class="col-md-2" style="margin-top: 40px;">
-              <h5> Créer une catégorie</h5>
+              <h5> Créer un rôle</h5>
               <form action="create" method="post">
                      <div class="form-group">
-                            <input type="text" class="form-control" id="input" name="categorie" placeholder="Technologie" required>
+                            <input type="text" class="form-control" id="input" name="role" placeholder="User" required>
                      </div>
                      <div class="text-right">
                             <button type="submit" class="btn btn-primary">Envoyer</button>

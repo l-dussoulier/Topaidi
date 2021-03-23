@@ -54,5 +54,10 @@ public class RoleDaoImpl implements RoleDao {
         return em.createQuery("select r from Role r", Role.class).getResultList();
     }
 
+    @Override
+    public Role getLastRole() {
+        return em.createQuery("select r from Role r ORDER BY r.Niveau", Role.class).getSingleResult();
+    }
+
 
 }

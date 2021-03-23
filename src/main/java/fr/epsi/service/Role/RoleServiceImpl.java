@@ -50,4 +50,11 @@ public class RoleServiceImpl implements RoleService {
       public Role getById(Long id) {
             return em.find(Role.class, id);
       }
+
+
+      @Override
+      public Role LastRole() {
+            RoleDao roleDao = new RoleDaoImpl(em, utx);
+            return roleDao.getLastRole();
+      }
 }
