@@ -86,6 +86,24 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>ListTopUserServlet</servlet-name>
+        <servlet-class>fr.epsi.controller.Idee.ListTopUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListTopUserServlet</servlet-name>
+        <url-pattern>/idee/topUser</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ListTopVoteServlet</servlet-name>
+        <servlet-class>fr.epsi.controller.Idee.ListTopVoteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListTopVoteServlet</servlet-name>
+        <url-pattern>/idee/topVotes</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>CategorieServlet</servlet-name>
         <servlet-class>fr.epsi.controller.CategorieServlet</servlet-class>
     </servlet>

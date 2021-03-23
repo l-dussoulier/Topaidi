@@ -10,6 +10,7 @@
 </head>
 <body>
 <%@include file="../commons/menu.jsp"%>
+
 <div class="row">
 <div class="col-md-2"></div>
 <div class="col-8">
@@ -22,12 +23,17 @@
             <a class="btn btn-primary text-right" href="create">Ajouter une idée</a>
         </div>
     </div>
+    <div>
+        <a class="btn btn-primary text-left" href="/Topaidi-1.0-SNAPSHOT/idee/topIdees">Top idées</a>
+        <a class="btn btn-primary text-left" href="/Topaidi-1.0-SNAPSHOT/idee/topUser">Top brains</a>
+        <a class="btn btn-primary text-left" href="/Topaidi-1.0-SNAPSHOT/idee/topVotes">Top buzz</a>
+    </div>
     <c:out value="${ infoIdees }" />
     <br>
     <br>
 
 
-    <c:forEach items="${topIdees}" var="topIdees">
+    <c:forEach items="${topIdees}" var="topIdees" begin="0" end="2">
         <div class="card shadow">
             <div class="card-header">
                 <form action="listIdees" method="post">

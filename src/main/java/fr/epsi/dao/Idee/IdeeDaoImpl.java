@@ -60,6 +60,7 @@ public class IdeeDaoImpl implements IdeeDao {
             return em.createQuery("select i from Idee i ORDER BY i.dateEmission ASC", Idee.class).getResultList();
       }
 
+
       @Override
       public void setLike(Idee i, Long top) {
             try {
