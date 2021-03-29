@@ -63,10 +63,11 @@
                 <blockquote class="blockquote mb-0">
                     <div class="row">
                         <div class="col-md-3">
-                            <img style="width: 18rem;" class="card-img-top" src="<c:out value="${topIdees.lienImage}" />" alt="Card image cap">
+                            <img style="width: 22rem;" class="card-img-top" src="<c:out value="data:image/jpeg;base64,${topIdees.lienImg}"
+                             />" alt="Card image cap">
                         </div>
                         <div class="col-md-5">
-                            <p style="width: 30rem;"><c:out value="${topIdees.content}" /></p>
+                            <p style="width: 28rem; margin-left: 15px;"><c:out value="${topIdees.content}" /></p>
                         </div>
                         <div class="col-md-4">
                             <div class="card shadow" style=" overflow: scroll; height: 300px;">

@@ -1,6 +1,7 @@
 package fr.epsi.controller.Idee;
 
 import fr.epsi.dto.CommentaireDTO;
+import fr.epsi.dto.IdeeDTO;
 import fr.epsi.dto.VoteDTO;
 import fr.epsi.entite.Idee;
 import fr.epsi.entite.User;
@@ -35,11 +36,12 @@ public class ListTopIdeeServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-        List<Idee> i = IdeeService.getTopIdees();
-        List<Idee> idees = new ArrayList<>();
+        List<IdeeDTO> i = IdeeService.getTopIdees();
+        List<IdeeDTO> idees = new ArrayList<>();
         List<Double> pourcentages = new ArrayList<>();
 
-        for (Idee idee : i){
+        for (IdeeDTO idee : i){
+            System.out.println("flop "+idee.getFlop());
             Long top = idee.getTop();
             Long flop = idee.getFlop();
             Long total = top + flop;

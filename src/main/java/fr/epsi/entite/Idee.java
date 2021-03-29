@@ -18,14 +18,14 @@ public class Idee {
       @ManyToOne
       @JoinColumn(name="categorie_id")
       private Categorie Categorie;
-      private String lienImage;
+      @Lob
+      private byte[] image;
       @ManyToOne
       @JoinColumn(name="user_id")
       private User user;
       private Long top = parseLong("0");
       private Long flop = parseLong("0");
       private Date dateEmission;
-
 
       public Long getId() {
             return id;
@@ -51,12 +51,12 @@ public class Idee {
             Categorie = categorie;
       }
 
-      public String getLienImage() {
-            return lienImage;
+      public byte[] getImage() {
+            return image;
       }
 
-      public void setLienImage(String lienImage) {
-            this.lienImage = lienImage;
+      public void setImage(byte[] image) {
+            this.image = image;
       }
 
       public User getUser() {

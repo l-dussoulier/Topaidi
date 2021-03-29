@@ -1,6 +1,7 @@
 package fr.epsi.controller.Idee;
 
 import fr.epsi.dto.CommentaireDTO;
+import fr.epsi.dto.IdeeDTO;
 import fr.epsi.dto.VoteDTO;
 import fr.epsi.entite.Idee;
 import fr.epsi.entite.User;
@@ -30,7 +31,7 @@ public class ListTopUserServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-        List<Idee> i = IdeeService.getTopIdees();
+        List<IdeeDTO> i = IdeeService.getTopIdees();
         List<Idee> idees = new ArrayList<>();
 
 

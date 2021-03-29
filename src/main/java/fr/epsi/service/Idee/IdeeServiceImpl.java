@@ -17,6 +17,8 @@ import javax.ejb.TransactionManagementType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.UserTransaction;
+import java.util.ArrayList;
+import java.util.Base64;
 import java.util.Date;
 import java.util.List;
 
@@ -37,7 +39,7 @@ public class IdeeServiceImpl implements IdeeService {
             i.setTitre(ideeDTO.getTitre());
             i.setContent(ideeDTO.getContent());
             i.setCategorie(ideeDTO.getCategorie());
-            i.setLienImage(ideeDTO.getLienImage());
+            i.setImage(ideeDTO.getImage());
             i.setUser(ideeDTO.getUser());
             i.setDateEmission(ideeDTO.getDateEmission());
             IdeeDao dao =new IdeeDaoImpl(em, utx);
@@ -46,14 +48,44 @@ public class IdeeServiceImpl implements IdeeService {
       }
 
 
-      public List<Idee> getIdees() {
+      public List<IdeeDTO> getIdees() {
             IdeeDao IdeeDao = new IdeeDaoImpl(em, utx);
-            return IdeeDao.getIdees();
+            List<IdeeDTO> IdeesListe = new ArrayList<>();
+
+            for (Idee i: IdeeDao.getTopIdees()) {
+                  IdeeDTO ideeDTO = new IdeeDTO();
+                  ideeDTO.setId(i.getId());
+                  ideeDTO.setTitre(i.getTitre());
+                  ideeDTO.setContent(i.getContent());
+                  ideeDTO.setCategorie(i.getCategorie());
+                  ideeDTO.setLienImg(Base64.getEncoder().encodeToString(i.getImage()));
+                  ideeDTO.setUser(i.getUser());
+                  ideeDTO.setDateEmission(i.getDateEmission());
+                  ideeDTO.setFlop(i.getFlop());
+                  ideeDTO.setTop(i.getTop());
+                  IdeesListe.add(ideeDTO);
+            }
+            return IdeesListe;
       }
 
-      public List<Idee> getTopIdees() {
+      public List<IdeeDTO> getTopIdees() {
             IdeeDao IdeeDao = new IdeeDaoImpl(em, utx);
-            return IdeeDao.getTopIdees();
+            List<IdeeDTO> IdeesListe = new ArrayList<>();
+
+            for (Idee i: IdeeDao.getTopIdees()) {
+                  IdeeDTO ideeDTO = new IdeeDTO();
+                  ideeDTO.setId(i.getId());
+                  ideeDTO.setTitre(i.getTitre());
+                  ideeDTO.setContent(i.getContent());
+                  ideeDTO.setCategorie(i.getCategorie());
+                  ideeDTO.setLienImg(Base64.getEncoder().encodeToString(i.getImage()));
+                  ideeDTO.setUser(i.getUser());
+                  ideeDTO.setDateEmission(i.getDateEmission());
+                  ideeDTO.setTop(i.getTop());
+                  ideeDTO.setFlop(i.getFlop());
+                  IdeesListe.add(ideeDTO);
+            }
+            return IdeesListe;
       }
 
       @Override

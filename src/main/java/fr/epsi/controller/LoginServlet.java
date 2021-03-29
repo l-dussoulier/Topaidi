@@ -25,6 +25,8 @@ public class LoginServlet extends HttpServlet {
         this.getServletContext().getRequestDispatcher("/WEB-INF/auth/login.jsp").forward(req, resp);
     }
 
+
+
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException
     {

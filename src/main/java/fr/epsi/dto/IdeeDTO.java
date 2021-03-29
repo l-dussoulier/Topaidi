@@ -1,9 +1,7 @@
 package fr.epsi.dto;
 
-import fr.epsi.entite.Categorie;
 import fr.epsi.entite.User;
 
-import javax.persistence.*;
 import java.util.Date;
 
 public class IdeeDTO {
@@ -12,12 +10,13 @@ public class IdeeDTO {
       private String titre;
       private String content;
       private fr.epsi.entite.Categorie Categorie;
-      private String lienImage;
+      private byte[] image;
       private User user;
       private Long top;
       private Long flop;
       private Date dateEmission;
       private Long pourcent;
+      private String lienImg;
 
 
 
@@ -45,12 +44,12 @@ public class IdeeDTO {
             Categorie = categorie;
       }
 
-      public String getLienImage() {
-            return lienImage;
+      public byte[] getImage() {
+            return image;
       }
 
-      public void setLienImage(String lienImage) {
-            this.lienImage = lienImage;
+      public void setImage(byte[] image) {
+            this.image = image;
       }
 
       public String getContent() {
@@ -100,5 +99,13 @@ public class IdeeDTO {
 
       public void setPourcent(Long pourcent) {
             this.pourcent = pourcent;
+      }
+
+      public String getLienImg() {
+            return lienImg;
+      }
+
+      public void setLienImg(String lienImg) {
+            this.lienImg = lienImg;
       }
 }

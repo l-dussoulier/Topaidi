@@ -9,15 +9,19 @@ import fr.epsi.service.User.UserService;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Paths;
 import java.util.Date;
 
 import static java.lang.Long.parseLong;
 
-
+@MultipartConfig
 public class IdeeServlet extends HttpServlet {
 
       @EJB
@@ -26,7 +30,6 @@ public class IdeeServlet extends HttpServlet {
       private IdeeService IdeeService;
       @EJB
       private UserService userService;
-
 
 
       protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -42,6 +45,13 @@ public class IdeeServlet extends HttpServlet {
 
       {
 
+            //
+            Part filePart = req.getPart("imgtest"); // Retrieves <input type="file" name="file">
+            InputStream fileContent = filePart.getInputStream();
+            byte[] image = fileContent.readAllBytes();
+
+
+
             // récuperer une catégorie par id
             Long idCat = parseLong(req.getParameter("categorie-select"));
             Categorie cat = CategorieService.getById(idCat);
@@ -52,7 +62,7 @@ public class IdeeServlet extends HttpServlet {
             iDTO.setUser(user);
             iDTO.setTitre(req.getParameter("titre"));
             iDTO.setContent(req.getParameter("texte"));
-            iDTO.setLienImage(req.getParameter("lien"));
+            iDTO.setImage(image);
             Date date = new Date();
             iDTO.setDateEmission(date);
             IdeeService.create(iDTO);

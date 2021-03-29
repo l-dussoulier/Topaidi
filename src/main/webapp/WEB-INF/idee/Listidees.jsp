@@ -50,7 +50,7 @@
                      <blockquote class="blockquote mb-0">
                             <div class="row">
                             <div class="col-md-3">
-                                   <img style="width: 18rem;" class="card-img-top" src="<c:out value="${idees.lienImage}" />" alt="Card image cap">
+                                   <img style="width: 18rem;" class="card-img-top" src="<c:out value="data:image/jpeg;base64,${idees.lienImg}" />" alt="Aucune image">
                             </div>
                             <div class="col-md-5">
                                    <p style="width: 30rem;"><c:out value="${idees.content}" /></p>

@@ -11,9 +11,9 @@ public interface IdeeService {
 
       void create(IdeeDTO i);
 
-      List<Idee> getIdees();
+      List<IdeeDTO> getIdees();
 
-      List<Idee> getTopIdees();
+      List<IdeeDTO> getTopIdees();
 
       Idee getById(Long id);
 
