@@ -5,7 +5,7 @@
 <html>
 <head>
 
-    <title>Liste des idées classées par Tops</title>
+    <title>Liste des idées classées par Tops des utilisateurs</title>
 
 </head>
 <body>

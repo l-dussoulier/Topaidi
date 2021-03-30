@@ -17,7 +17,7 @@
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-8">
-                <h1 style="text-align: center;">Liste des idées classées par Tops</h1>
+                <h1 style="text-align: center;">Liste des idées classées par Tops des votes</h1>
             </div>
             <div class="col-md-2">
                 <a class="btn btn-primary text-right" href="create">Ajouter une idée</a>

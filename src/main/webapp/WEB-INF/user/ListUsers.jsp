@@ -52,7 +52,7 @@
                             </td>
 
                             <td>
-                                   <button class="btn btn-success" type="submit" >Valider</button>
+                                   <button class="btn btn-success" type="submit" >Enregistrer</button>
                             </td>
                             <td>
                                    <button class="btn btn-warning" type="submit" value="delete" name="delete">Supprimer</button>

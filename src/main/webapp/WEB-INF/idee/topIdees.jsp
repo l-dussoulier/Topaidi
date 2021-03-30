@@ -24,9 +24,9 @@
         </div>
     </div>
     <div>
-        <a class="btn btn-primary text-left" href="/Topaidi-1.0-SNAPSHOT/idee/topIdees">Top idées</a>
-        <a class="btn btn-primary text-left" href="/Topaidi-1.0-SNAPSHOT/idee/topUser">Top brains</a>
-        <a class="btn btn-primary text-left" href="/Topaidi-1.0-SNAPSHOT/idee/topVotes">Top buzz</a>
+        <a class="btn btn-light text-left" href="/Topaidi-1.0-SNAPSHOT/idee/topIdees">Top idées</a>
+        <a class="btn btn-light text-left" href="/Topaidi-1.0-SNAPSHOT/idee/topUser">Top brains</a>
+        <a class="btn btn-light text-left" href="/Topaidi-1.0-SNAPSHOT/idee/topVotes">Top buzz</a>
     </div>
     <c:out value="${ infoIdees }" />
     <br>
