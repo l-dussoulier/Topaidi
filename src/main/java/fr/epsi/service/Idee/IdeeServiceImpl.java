@@ -2,13 +2,9 @@ package fr.epsi.service.Idee;
 
 import fr.epsi.dao.Idee.IdeeDao;
 import fr.epsi.dao.Idee.IdeeDaoImpl;
-import fr.epsi.dao.User.UserDao;
-import fr.epsi.dao.User.UserDaoImpl;
-import fr.epsi.dao.Vote.VoteDao;
-import fr.epsi.dao.Vote.VoteDaoImpl;
 import fr.epsi.dto.IdeeDTO;
-import fr.epsi.entite.Categorie;
 import fr.epsi.entite.Idee;
+import fr.epsi.entite.User;
 
 import javax.annotation.Resource;
 import javax.ejb.Stateless;
@@ -86,6 +82,11 @@ public class IdeeServiceImpl implements IdeeService {
                   IdeesListe.add(ideeDTO);
             }
             return IdeesListe;
+      }
+
+      public List<Object[]> getTopUsers(){
+            IdeeDao IdeeDao = new IdeeDaoImpl(em, utx);
+            return IdeeDao.getTopUsers();
       }
 
       @Override

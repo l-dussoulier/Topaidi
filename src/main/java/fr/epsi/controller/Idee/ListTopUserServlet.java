@@ -1,5 +1,6 @@
 package fr.epsi.controller.Idee;
 
+import fr.epsi.dao.Idee.IdeeDao;
 import fr.epsi.dto.CommentaireDTO;
 import fr.epsi.dto.IdeeDTO;
 import fr.epsi.dto.VoteDTO;
@@ -12,8 +13,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.Console;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -31,11 +34,45 @@ public class ListTopUserServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-        List<IdeeDTO> i = IdeeService.getTopIdees();
-        List<Idee> idees = new ArrayList<>();
+        //List<IdeeDTO> i = IdeeService.getTopIdees();
+        List<Idee> users = new ArrayList<>();
+        /*List<Idee> i = IdeeService.getIdees();
+        List<User> users = new ArrayList<>();
+        List<Integer> totalIdees = new ArrayList<Integer>();
+        boolean incremente = false;
+
+        // On met dans une liste les Users et dans une autre leur nombre d'idées
+        for (Idee idee : i){
+            if (users.size() == 0){
+                users.add(idee.getUser());
+                totalIdees.add(1);
+            } else {
+                for (int x = 0; x < users.size(); x++){
+                    if (idee.getUser().equals(users.get(x))){
+                        totalIdees.set(x, totalIdees.get(x) + 1);
+                        incremente = true;
+                        break;
+                    }
+                } if (incremente == false) {
+                    users.add(idee.getUser());
+                    totalIdees.add(1);
+                }
+            }
+        }
+
+        // On les classes dans l'ordre décroissant
+        for (int x = 0; x < users.size(); x++){
+
+        }
+
+        //userService.getById();
+*/
+        List<Object[]> l = IdeeService.getTopUsers();
+         System.out.println(l.get(0));
 
 
-        request.setAttribute("topIdees", idees);
+
+        request.setAttribute("topUser", users);
         request.setAttribute("commentaire", CommentaireService.getCommentaires());
 
         this.getServletContext().getRequestDispatcher("/WEB-INF/idee/topIdees.jsp").forward(request, response);

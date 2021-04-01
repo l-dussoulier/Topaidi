@@ -1,8 +1,8 @@
 package fr.epsi.service.Idee;
 
 import fr.epsi.dto.IdeeDTO;
-import fr.epsi.entite.Categorie;
 import fr.epsi.entite.Idee;
+import fr.epsi.entite.User;
 
 import java.util.Date;
 import java.util.List;
@@ -14,6 +14,8 @@ public interface IdeeService {
       List<IdeeDTO> getIdees();
 
       List<IdeeDTO> getTopIdees();
+
+      List<Object[]> getTopUsers();
 
       Idee getById(Long id);
 

@@ -1,9 +1,10 @@
 package fr.epsi.dao.Idee;
 
+import fr.epsi.dto.IdeeDTO;
 import fr.epsi.entite.Idee;
+import fr.epsi.entite.User;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
 import javax.transaction.*;
 import java.util.Date;
 import java.util.List;
@@ -60,6 +61,11 @@ public class IdeeDaoImpl implements IdeeDao {
             return em.createQuery("select i from Idee i ORDER BY i.dateEmission ASC", Idee.class).getResultList();
       }
 
+      @Override
+      public List<Object[]> getTopUsers() {
+            return em.createQuery("SELECT i.user, COUNT(u.id) FROM Idee i JOIN i.user u GROUP BY i.user").getResultList();
+            //SELECT count(user_id), User.email from Idee INNER JOIN User ON idee.user_id = User.id group by user_id
+      }
 
       @Override
       public void setLike(Idee i, Long top) {

@@ -1,6 +1,8 @@
 package fr.epsi.dao.Idee;
 
+import fr.epsi.dto.IdeeDTO;
 import fr.epsi.entite.Idee;
+import fr.epsi.entite.User;
 
 import java.util.Date;
 import java.util.List;
@@ -11,6 +13,8 @@ public interface IdeeDao {
       List<Idee> getIdees();
 
       List<Idee> getTopIdees();
+
+      List<Object[]> getTopUsers();
 
       void setLike(Idee i, Long top);
 
