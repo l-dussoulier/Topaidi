@@ -38,6 +38,6 @@ public class CategorieServlet extends HttpServlet {
         cDTO.setNom(categorie);
         CategorieService.create(cDTO);
 
-        this.getServletContext().getRequestDispatcher("/WEB-INF/home.jsp").forward(req, resp);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/idee/Listidees.jsp").forward(req, resp);
     }
 }

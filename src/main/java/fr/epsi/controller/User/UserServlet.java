@@ -33,7 +33,7 @@ public class UserServlet extends HttpServlet {
         uDTO.setPassword(req.getParameter("password"));
         UserService.create(uDTO);
 
-        this.getServletContext().getRequestDispatcher("/WEB-INF/home.jsp").forward(req, resp);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/idee/Listidees.jsp").forward(req, resp);
 
     }
 }

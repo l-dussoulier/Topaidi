@@ -64,7 +64,6 @@ public class IdeeDaoImpl implements IdeeDao {
       @Override
       public List<Object[]> getTopUsers() {
             return em.createQuery("SELECT i.user, COUNT(u.id) FROM Idee i JOIN i.user u GROUP BY i.user ORDER BY count(u.id) DESC").getResultList();
-            //SELECT count(user_id), User.email from Idee INNER JOIN User ON idee.user_id = User.id group by user_id
       }
 
       @Override

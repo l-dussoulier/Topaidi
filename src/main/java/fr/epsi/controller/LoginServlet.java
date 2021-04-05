@@ -70,7 +70,7 @@ public class LoginServlet extends HttpServlet {
                            req.getSession().setAttribute("EMAIL_USER",user.getEmail());
                            req.getSession().setAttribute("ROLEID_USER",user.getRole().getNiveau());
 
-                           this.getServletContext().getRequestDispatcher("/WEB-INF/home.jsp").forward(req, resp);
+                           this.getServletContext().getRequestDispatcher("/WEB-INF/idee/Listidees.jsp").forward(req, resp);
                      }
 
                }

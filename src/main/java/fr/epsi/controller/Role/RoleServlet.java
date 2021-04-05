@@ -35,6 +35,6 @@ public class RoleServlet extends HttpServlet {
             roleService.create(rDTO);
 
             req.setAttribute("info", "Un nouveau rôle a été créer");
-            this.getServletContext().getRequestDispatcher("/WEB-INF/home.jsp").forward(req, resp);
+            this.getServletContext().getRequestDispatcher("/WEB-INF/idee/Listidees.jsp").forward(req, resp);
       }
 }

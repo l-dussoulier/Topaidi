@@ -65,6 +65,6 @@ public class ListUserServlet extends HttpServlet {
             }
 
 
-            this.getServletContext().getRequestDispatcher("/WEB-INF/home.jsp").forward(req, resp);
+            this.getServletContext().getRequestDispatcher("/WEB-INF/idee/Listidees.jsp").forward(req, resp);
       }
 }
