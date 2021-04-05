@@ -65,7 +65,7 @@
                 <blockquote class="blockquote mb-0">
                     <div class="row">
                         <div class="col-md-3">
-                            <img style="width: 22rem;" class="card-img-top" src="<c:out value="data:image/jpeg;base64,${topIdees.lienImg}"
+                            <img style="width: 15em;" class="card-img-top" src="<c:out value="data:image/jpeg;base64,${topIdees.lienImg}"
                              />" alt="Card image cap">
                         </div>
                         <div class="col-md-5">
