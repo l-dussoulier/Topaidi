@@ -28,6 +28,7 @@ public class RoleServlet extends HttpServlet {
       protected void doPost(HttpServletRequest req, HttpServletResponse resp)
               throws ServletException, IOException
       {
+            // création d'un rôle
             RoleDTO rDTO =new RoleDTO();
             rDTO.setNom(req.getParameter("role"));
             rDTO.setNiveau(roleService.getRoles().size()+1);

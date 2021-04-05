@@ -52,7 +52,7 @@ public class RegisterServlet extends HttpServlet {
                 BigInteger bigInt = new BigInteger(1,digest);
                 String hashtext = bigInt.toString(16);
                 // Fin
-
+                userDTO.setUsername(req.getParameter("username"));
                 userDTO.setPassword(hashtext);
                 userService.create(userDTO);
 

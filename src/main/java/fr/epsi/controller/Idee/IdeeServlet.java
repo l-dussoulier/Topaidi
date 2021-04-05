@@ -45,8 +45,8 @@ public class IdeeServlet extends HttpServlet {
 
       {
 
-            //
-            Part filePart = req.getPart("imgtest"); // Retrieves <input type="file" name="file">
+            // Récupération image
+            Part filePart = req.getPart("imgFile");
             InputStream fileContent = filePart.getInputStream();
             byte[] image = fileContent.readAllBytes();
 
@@ -67,7 +67,7 @@ public class IdeeServlet extends HttpServlet {
             iDTO.setDateEmission(date);
             IdeeService.create(iDTO);
 
-            resp.sendRedirect("../idee/listIdees");
+            resp.sendRedirect("../idee/topIdees");
 
       }
 }

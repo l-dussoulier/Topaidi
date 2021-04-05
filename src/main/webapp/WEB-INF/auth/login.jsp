@@ -13,7 +13,7 @@
               <form class="form-signin" action="login" method="post" style="margin-top: 20px;">
                      <br>
                      <label for="inputEmail" class="sr-only">Email</label>
-                     <input type="email" id="inputEmail" class="form-control" placeholder="Email " required="" autofocus="" name="email">
+                     <input type="text" id="inputEmail" class="form-control" placeholder="Email ou Username" required="" autofocus="" name="email">
                      <br>
                      <label for="inputPassword" class="sr-only">Mot de passe</label>
                      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="" name="password">

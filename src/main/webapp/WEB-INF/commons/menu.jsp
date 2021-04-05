@@ -4,6 +4,7 @@
 <html>
 <head>
        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+       <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
 </head>
        <body>
@@ -12,9 +13,6 @@
                             <ul class="navbar-nav mr-auto">
                                    <li class="nav-item">
                                           <a class="nav-item nav-link" href="/Topaidi-1.0-SNAPSHOT/idee/create">Proposer idée</a>
-                                   </li>
-                                   <li class="nav-item">
-                                          <a class="nav-item nav-link" href="/Topaidi-1.0-SNAPSHOT/idee/listIdees">Liste idées</a>
                                    </li>
                                    <li class="nav-item">
                                           <a class="nav-item nav-link" href="/Topaidi-1.0-SNAPSHOT/idee/topIdees">Top idées</a>
@@ -48,7 +46,7 @@
                      <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
                             <ul class="navbar-nav ml-auto">
                                    <li class="nav-item">
-                                          <a class="nav-item nav-link text-right"><%= request.getSession().getAttribute("EMAIL_USER") %></a>
+                                          <a class="nav-item nav-link text-right"><%= request.getSession().getAttribute("USERNAME") %></a>
                                    </li>
                                    <li class="nav-item">
                                           <a class="nav-item nav-link text-right" href="/Topaidi-1.0-SNAPSHOT/logout">Déconnexion</a>

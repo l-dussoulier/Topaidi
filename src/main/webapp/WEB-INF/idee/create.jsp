@@ -38,12 +38,10 @@
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="texte" required></textarea>
                      </div>
                      <div class="form-group">
-                            <!--<label>Lien image</label>
-                            <input class="form-control" name="lien">-->
                             <div class="d-flex justify-content-center">
                                    <div style="position: relative;overflow: hidden;display: inline-block;">
                                           <button style=" border: 2px solid gray;color: gray;background-color: white;padding: 8px 20px;border-radius: 8px;font-size: 20px;font-weight: bold;">Ajouter une image</button>
-                                          <input type="file" name="imgtest" style="font-size: 100px;position: absolute;left: 0;top: 0;opacity: 0;">
+                                          <input type="file" name="imgFile" style="font-size: 100px;position: absolute;left: 0;top: 0;opacity: 0;">
                                    </div>
                             </div>
                      </div>

@@ -105,8 +105,6 @@ public class ListIdeeServlet extends HttpServlet {
                   CommentaireService.create(cDTO);
             }
 
-            //this.getServletContext().getRequestDispatcher("/WEB-INF/idee/Listidees.jsp").forward(req, resp);
-            //req.setAttribute("infoIdees", "Vous n'avez pas le droit de voté pour votre idée");
             resp.sendRedirect("../idee/listIdees");
       }
 }

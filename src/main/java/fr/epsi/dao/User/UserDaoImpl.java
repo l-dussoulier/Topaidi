@@ -88,7 +88,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     public List<User> getByEmailPassword(String email, String password) {
-            return em.createQuery("select u from User u where  u.email = :email AND u.password = :password", User.class)
+            return em.createQuery("select u from User u where  (u.email = :email OR u.username = :email) AND u.password = :password", User.class)
                     .setParameter("email",email)
                     .setParameter("password",password)
                     .getResultList();

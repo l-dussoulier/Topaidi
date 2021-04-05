@@ -35,6 +35,7 @@ public class UserServiceImpl implements UserService {
 
             User u = new User();
             u.setEmail(userDTO.getEmail());
+            u.setUsername(userDTO.getUsername());
             u.setPassword(userDTO.getPassword());
             u.setActivate(Boolean.FALSE);
             UserDao dao =new UserDaoImpl(em, utx);

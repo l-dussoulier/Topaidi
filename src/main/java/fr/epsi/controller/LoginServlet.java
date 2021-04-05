@@ -50,18 +50,23 @@ public class LoginServlet extends HttpServlet {
                if (users.size() == 0) {
                      req.setAttribute("info","Erreur dans l'email ou le mot de passe");
                      this.getServletContext().getRequestDispatcher("/WEB-INF/auth/login.jsp").forward(req, resp);
+
                }
                if(users.get(0).getRole() == null){
                      req.setAttribute("info","L'utilisateur doit avoir un rôle pour se connecter");
                      this.getServletContext().getRequestDispatcher("/WEB-INF/auth/login.jsp").forward(req, resp);
-               }else{
+               }
+               else {
                      if (users.get(0).getActivate() == false){
                            req.setAttribute("info","Utilisateur "+users.get(0).getEmail() +" est bloqué");
                            this.getServletContext().getRequestDispatcher("/WEB-INF/auth/login.jsp").forward(req, resp);
+
                      }
                      else{
+                           // mise en session
                            User user = users.get(0);
                            req.getSession().setAttribute("ID_USER",user.getId());
+                           req.getSession().setAttribute("USERNAME",user.getUsername());
                            req.getSession().setAttribute("EMAIL_USER",user.getEmail());
                            req.getSession().setAttribute("ROLEID_USER",user.getRole().getNiveau());
 
