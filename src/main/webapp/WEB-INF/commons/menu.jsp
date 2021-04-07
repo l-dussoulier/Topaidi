@@ -38,7 +38,7 @@
                             </ul>
                      </div>
                      <div class="mx-auto order-0">
-                            <a class="navbar-brand mx-auto" href="/Topaidi-1.0-SNAPSHOT/home">Topaidi</a>
+                            <a class="navbar-brand mx-auto" href="/Topaidi-1.0-SNAPSHOT/idee/listIdees">Topaidi</a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
                                    <span class="navbar-toggler-icon"></span>
                             </button>

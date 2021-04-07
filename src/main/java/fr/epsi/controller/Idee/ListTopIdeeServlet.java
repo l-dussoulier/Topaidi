@@ -41,7 +41,6 @@ public class ListTopIdeeServlet extends HttpServlet {
         List<Double> pourcentages = new ArrayList<>();
 
         for (IdeeDTO idee : i){
-            System.out.println("flop "+idee.getFlop());
             Long top = idee.getTop();
             Long flop = idee.getFlop();
             Long total = top + flop;
@@ -148,7 +147,6 @@ public class ListTopIdeeServlet extends HttpServlet {
             cDTO.setUser(user);
             CommentaireService.create(cDTO);
         }
-        System.out.println("test");
         resp.sendRedirect("../idee/topIdees");
     }
 }

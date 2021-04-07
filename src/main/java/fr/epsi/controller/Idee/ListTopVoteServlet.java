@@ -70,7 +70,7 @@ public class ListTopVoteServlet extends HttpServlet {
         request.setAttribute("topIdees", idees);
         request.setAttribute("commentaire", CommentaireService.getCommentaires());
 
-        this.getServletContext().getRequestDispatcher("/WEB-INF/idee/topIdees.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/idee/topVotes.jsp").forward(request, response);
 
     }
 
@@ -131,7 +131,6 @@ public class ListTopVoteServlet extends HttpServlet {
             cDTO.setUser(user);
             CommentaireService.create(cDTO);
         }
-        System.out.println("test");
         resp.sendRedirect("../idee/topVotes");
     }
 }

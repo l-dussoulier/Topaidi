@@ -37,7 +37,6 @@ public class ListIdeeServlet extends HttpServlet {
       public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
             request.setAttribute("idees", IdeeService.getIdees());
-            System.out.println(IdeeService.getTopIdees().get(0).getFlop());
             request.setAttribute("commentaire", CommentaireService.getCommentaires());
 
             this.getServletContext().getRequestDispatcher("/WEB-INF/idee/Listidees.jsp").forward(request, response);
@@ -57,7 +56,6 @@ public class ListIdeeServlet extends HttpServlet {
             User user =  userService.getById(idUser);
 
             // recuperation du idée
-            System.out.println(req.getParameter("idee_id"));
             Long idIdee = parseLong(req.getParameter("idee_id"));
             Idee idee = IdeeService.getById(idIdee);
             VoteDTO vDTO=new VoteDTO();
@@ -85,6 +83,8 @@ public class ListIdeeServlet extends HttpServlet {
                         }else{
                               //mettre un message dans le bandeau déjà voté pour cette idée
                               System.out.println("Vous avez déjà voté pour cette idée");
+                              req.setAttribute("infoIdees", "Vous avez déjà voté pour cette idée");
+
                         }
                   }else {
                         //mettre un message dans le bandeau user pas le droit de voté pour son idée
@@ -95,6 +95,7 @@ public class ListIdeeServlet extends HttpServlet {
             } else {
                   //mettre un message dans le bandeau user à dépassé la  date limite
                   System.out.println("Vous n'avez dépassé la date limite pour voté");
+                  req.setAttribute("infoIdees", "Vous n'avez dépassé la date limite pour voté");
             }
 
             if (commentaire != null) {

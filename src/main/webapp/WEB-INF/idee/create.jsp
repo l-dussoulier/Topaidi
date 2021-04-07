@@ -18,8 +18,7 @@
               <br>
               <form action="create" method="post" enctype="multipart/form-data">
                      <div class="form-group">
-                            <label for="emailInput">Votre Email</label>
-                            <input type="email" class="form-control" readonly id="emailInput" name="email" value=" <%= request.getSession().getAttribute("EMAIL_USER") %>">
+                            <input type="text" class="form-control" readonly id="emailInput" name="email" value=" <%= request.getSession().getAttribute("USERNAME") %>">
                      </div>
                      <div class="form-group">
                             <label >Choisir une catégorie</label>

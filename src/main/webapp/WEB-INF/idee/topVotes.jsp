@@ -5,7 +5,7 @@
 <html>
 <head>
 
-    <title>Liste des idées classées par Tops</title>
+    <title>Liste des idées classées par Tops des votes</title>
 
 </head>
 <body>
@@ -24,9 +24,9 @@
             </div>
         </div>
         <div>
-            <a class="btn btn-primary text-left" href="/Topaidi-1.0-SNAPSHOT/idee/topIdees">Top idées</a>
-            <a class="btn btn-primary text-left" href="/Topaidi-1.0-SNAPSHOT/idee/topUser">Top brains</a>
-            <a class="btn btn-primary text-left" href="/Topaidi-1.0-SNAPSHOT/idee/topVotes">Top buzz</a>
+            <a class="btn btn-light text-left" href="/Topaidi-1.0-SNAPSHOT/idee/topIdees">Top idées</a>
+            <a class="btn btn-light text-left" href="/Topaidi-1.0-SNAPSHOT/idee/topUser">Top brains</a>
+            <a class="btn btn-light text-left" href="/Topaidi-1.0-SNAPSHOT/idee/topVotes">Top buzz</a>
         </div>
         <c:out value="${ infoIdees }" />
         <br>
@@ -36,7 +36,7 @@
         <c:forEach items="${topIdees}" var="topIdees" begin="0" end="2">
             <div class="card shadow">
                 <div class="card-header">
-                    <form action="listIdees" method="post">
+                    <form action="topVotes" method="post">
                         <div class="row">
                             <div class="col-md-10">
                                 <h4><c:out value="${topIdees.titre}" />   <span class="text-secondary">- <c:out value="${topIdees.categorie.nom}" /></span></h4>
@@ -63,7 +63,7 @@
                     <blockquote class="blockquote mb-0">
                         <div class="row">
                             <div class="col-md-3">
-                                <img style="width: 15em;" class="card-img-top" src="<c:out value="${topIdees.lienImage}" />" alt="Card image cap">
+                                <img style="width: 15em;" class="card-img-top" src="<c:out value="${topIdees.lienImg}" />" alt="Card image cap">
                             </div>
                             <div class="col-md-5">
                                 <p style="width: 30rem;"><c:out value="${topIdees.content}" /></p>
@@ -76,7 +76,7 @@
                                         </c:if>
                                     </c:forEach>
                                 </div>
-                                <form action="listIdees" method="post">
+                                <form action="topVotes" method="post">
                                     <div class="input-group mb-3" style="margin-top: 10px;">
                                         <input class="form-control" type="text" name="idee_id" value="<c:out value="${topIdees.id}"/>" hidden>
                                         <input class="form-control shadow" type="text" placeholder="Ajouter un commentaire ..." class="form-control" id="commentaireInput" name="commentaire" required>

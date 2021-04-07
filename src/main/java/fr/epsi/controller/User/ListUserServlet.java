@@ -59,7 +59,6 @@ public class ListUserServlet extends HttpServlet {
 
             String delete = req.getParameter("delete");
             if (delete != null){
-                  System.out.println("delete "+idUser);
                   UserService.delete(user);
                   resp.sendRedirect("../user/listUsers");
             }

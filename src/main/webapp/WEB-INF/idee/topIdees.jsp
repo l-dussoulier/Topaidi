@@ -36,7 +36,7 @@
     <c:forEach items="${topIdees}" var="topIdees" begin="0" end="2">
         <div class="card shadow">
             <div class="card-header">
-                <form action="listIdees" method="post">
+                <form action="topIdees" method="post">
                     <div class="row">
                         <div class="col-md-10">
                             <h4><c:out value="${topIdees.titre}" />   <span class="text-secondary">- <c:out value="${topIdees.categorie.nom}" /></span></h4>
@@ -69,7 +69,7 @@
                              />" alt="Card image cap">
                         </div>
                         <div class="col-md-5">
-                            <p style="width: 28rem; margin-left: 15px;"><c:out value="${topIdees.content}" /></p>
+                            <p style="width: 28rem; margin-left: 30px;"><c:out value="${topIdees.content}" /></p>
                         </div>
                         <div class="col-md-4">
                             <div class="card shadow" style=" overflow: scroll; height: 300px;">
@@ -79,7 +79,7 @@
                                     </c:if>
                                 </c:forEach>
                             </div>
-                            <form action="listIdees" method="post">
+                            <form action="topIdees" method="post">
                                 <div class="input-group mb-3" style="margin-top: 10px;">
                                     <input class="form-control" type="text" name="idee_id" value="<c:out value="${topIdees.id}"/>" hidden>
                                     <input class="form-control shadow" type="text" placeholder="Ajouter un commentaire ..." class="form-control" id="commentaireInput" name="commentaire" required>

@@ -3,11 +3,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-       <title>Liste user en attente</title>
+       <title>Liste des utilisateurs</title>
 </head>
 <body>
 <%@include file="../commons/menu.jsp"%>
 <div class="col-12">
+
+       <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              <strong>Attention !</strong> Un utilisateur peut être supprimé uniquement s'il n'a effectué aucune action.
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+              </button>
+       </div>
+
        <h2>Liste des utilisateurs</h2>
        <table class="table table-hover">
               <thead>

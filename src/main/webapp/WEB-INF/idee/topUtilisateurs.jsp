@@ -70,7 +70,7 @@
                     }
                     if (y == 3){
 
-                        out.println("<span style='font-size: 1.5em; color: brow;'>");
+                        out.println("<span style='font-size: 1.5em; color: brown;'>");
                     }
 
                 %>

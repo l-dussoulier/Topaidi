@@ -43,8 +43,6 @@ public class ListTopUserServlet extends HttpServlet {
          for(Object[] element : l) {
               u = (User) element[0];
               UserDTO userDTO = new UserDTO();
-              System.out.println(u.getUsername());
-              System.out.println(element[1].toString());
               userDTO.setUsername(u.getUsername());
               userDTO.setNbIdees(element[1].toString());
               userDTO.setEmail(u.getEmail());
