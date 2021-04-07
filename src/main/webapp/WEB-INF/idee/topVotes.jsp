@@ -27,6 +27,7 @@
             <a class="btn btn-light text-left" href="/Topaidi-1.0-SNAPSHOT/idee/topIdees">Top idées</a>
             <a class="btn btn-light text-left" href="/Topaidi-1.0-SNAPSHOT/idee/topUser">Top brains</a>
             <a class="btn btn-light text-left" href="/Topaidi-1.0-SNAPSHOT/idee/topVotes">Top buzz</a>
+            <a class="btn btn-light text-left" href="/Topaidi-1.0-SNAPSHOT/idee/listIdees">Liste complète</a>
         </div>
         <c:out value="${ infoIdees }" />
         <br>
@@ -63,7 +64,7 @@
                     <blockquote class="blockquote mb-0">
                         <div class="row">
                             <div class="col-md-3">
-                                <img style="width: 15em;" class="card-img-top" src="<c:out value="${topIdees.lienImg}" />" alt="Card image cap">
+                                <img style="width: 15em;" class="card-img-top" src="<c:out value="data:image/jpeg;base64,${topIdees.lienImg}"/>" alt="Card image cap">
                             </div>
                             <div class="col-md-5">
                                 <p style="width: 30rem;"><c:out value="${topIdees.content}" /></p>
